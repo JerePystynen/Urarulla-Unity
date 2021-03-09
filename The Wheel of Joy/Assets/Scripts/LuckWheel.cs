@@ -6,121 +6,125 @@ namespace WheelOfJoy
 {
     public class LuckWheel : MonoBehaviour
     {
-        public GameObject spinButton;
-        public GameObject questionPanel;
-        private GameObject pointerObj;
+        // public GameObject spinButton;
+        // public GameObject questionPanel;
+        // private GameObject pointerObj;
 
-        public Animator questionPanelAnimator;
-        public Animator startButtonAnimator;
+        // public Animator questionPanelAnimator;
+        // public Animator startButtonAnimator;
 
-        private GameObject lightsObj;
-        private Light mainLight;
-        private Light centerLight;
-        private Light rightLight;
-        private Light leftLight;
-        private Light audienceLight;
+        // private GameObject lights;
+        // private Light _mainLight;
+        // private Light _centerLight;
+        // private Light _rightLight;
+        // private Light _leftLight;
+        // private Light _audienceLight;
 
-        public Pointer pointerScript;
+        // public Pointer pointerScript;
 
-        public bool canSpin;
+        // public bool canSpin;
 
-        private float spinTimer;
-        private float enableTimer;
-        private float buttonActivationTimer;
+        // private float spinTimer;
+        // private float enableTimer;
+        // private float buttonActivationTimer;
 
-        private float lightIntensity = 2f;
-        private float spinTime;
-        private float currentRotateSpeed;
-        private float startRotateSpeed;
-        private float rotateDecrease;
+        // private float lightIntensity = 2f;
+
+        // private float spinTime;
+        // private float startRotateSpeed;
+        // private float rotateDecrease;
+
+        // private float rotateSpeed = 1f;
+
+        // This script should only care about spinning itself, nothing else
+        private Coroutine _spinWheelCoroutine;
 
         private void Start()
         {
-            pointerScript = FindObjectOfType<Pointer>();
-            pointerObj = pointerScript.gameObject;
+            // pointerScript = FindObjectOfType<Pointer>();
+            // pointerObj = pointerScript.gameObject;
 
-            lightsObj = GameObject.FindGameObjectWithTag("Lights");
-            Transform mainLightObj = lightsObj.transform.GetChild(0);
-            Transform rightLightObj = lightsObj.transform.GetChild(1);
-            Transform centerLightObj = lightsObj.transform.GetChild(2);
-            Transform leftLightObj = lightsObj.transform.GetChild(3);
-            Transform audienceLightObj = lightsObj.transform.GetChild(4);
-            mainLight = mainLightObj.GetComponent<Light>();
-            rightLight = rightLightObj.GetComponent<Light>();
-            centerLight = centerLightObj.GetComponent<Light>();
-            leftLight = leftLightObj.GetComponent<Light>();
-            audienceLight = audienceLightObj.GetComponent<Light>();
+            // Transform lights = GameObject.FindGameObjectWithTag("Lights").transform;
 
+            // Transform mainLight = lights.GetChild(0);
+            // Transform rightLight = lights.GetChild(1);
+            // Transform centerLight = lights.GetChild(2);
+            // Transform leftLight = lights.GetChild(3);
+            // Transform audienceLight = lights.GetChild(4);
 
+            // _mainLight = mainLight.GetComponent<Light>();
+            // _rightLight = rightLight.GetComponent<Light>();
+            // _centerLight = centerLight.GetComponent<Light>();
+            // _leftLight = leftLight.GetComponent<Light>();
+            // _audienceLight = audienceLight.GetComponent<Light>();
         }
 
         private void Update()
         {
-            buttonActivationTimer += Time.deltaTime;
-            enableTimer += Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space))
+                SpinWheel();
 
-            if (canSpin)
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (buttonActivationTimer >= 15.25f)
-                    {
-                        SpinWheel();
-                    }
-                }
+            // buttonActivationTimer += Time.deltaTime;
+            // enableTimer += Time.deltaTime;
 
-                AddToTimer();
+            // if (canSpin)
+            // {
+            //     // if (Input.GetKeyDown(KeyCode.Space))
+            //     // {
+            //     //     if (buttonActivationTimer >= 15.25f)
+            //     //     {
+            //     //         SpinWheel();
+            //     //     }
+            //     // }
 
-                spinButton.SetActive(false);
+            //     // AddToTimer();
 
-                // intensifies side lights according to calculation
-                leftLight.intensity = spinTimer;
-                rightLight.intensity = spinTimer;
+            //     spinButton.SetActive(false);
 
-                // intensifies center light according to calculation
-                centerLight.intensity = spinTimer * lightIntensity;
+            //     // intensifies side lights according to calculation
+            //     _leftLight.intensity = spinTimer;
+            //     _rightLight.intensity = spinTimer;
 
-                // rotates Object(Wheel) on The z-axis according to speed set in inspector
-                transform.Rotate(new Vector3(1 * currentRotateSpeed, 0, 0));
+            //     // intensifies center light according to calculation
+            //     _centerLight.intensity = spinTimer * lightIntensity;
 
-                // currentspeed is decreased according to calculation 
-                currentRotateSpeed -= (rotateDecrease * 2f) * Time.deltaTime;
-            }
+            //     // rotates Object(Wheel) on The z-axis according to speed set in inspector
+            //     transform.Rotate(new Vector3(1 * rotateSpeed, 0, 0));
 
-            bool spinTimerReachesSetTimeAndRotateHasStopped = spinTimer >= spinTime;
-            if (spinTimerReachesSetTimeAndRotateHasStopped)
-            {
-                if (currentRotateSpeed <= 0)
-                {
-                    canSpin = false;
-                    startButtonAnimator.SetBool("Play", false);
-                    questionPanelAnimator.SetBool("Play", true);
-                    currentRotateSpeed = startRotateSpeed + Random.Range(-1f, 2f);
-                }
-            }
+            //     // currentspeed is decreased according to calculation 
+            //     rotateSpeed -= (rotateDecrease * 2f) * Time.deltaTime;
+            // }
 
-            if (canSpin)
-            {
-                if (enableTimer >= 14f)
-                {
-                    startButtonAnimator.SetBool("Play2", true);
-                }
+            // bool spinTimerReachesSetTimeAndRotateHasStopped = spinTimer >= spinTime;
+            // if (spinTimerReachesSetTimeAndRotateHasStopped)
+            // {
+            //     if (currentRotateSpeed <= 0)
+            //     {
+            //         canSpin = false;
+            //         startButtonAnimator.SetBool("Play", false);
+            //         questionPanelAnimator.SetBool("Play", true);
+            //         currentRotateSpeed = startRotateSpeed + Random.Range(-1f, 2f);
+            //     }
+            // }
 
-                if (buttonActivationTimer >= 15.25f)
-                {
-                    spinButton.SetActive(true);
-                }
-            }
+            // if (canSpin)
+            // {
+            //     if (enableTimer >= 14f)
+            //     {
+            //         startButtonAnimator.SetBool("Play2", true);
+            //     }
+
+            //     if (buttonActivationTimer >= 15.25f)
+            //     {
+            //         spinButton.SetActive(true);
+            //     }
+            // }
         }
 
-        private void AddToTimer()
-        {
-            spinTimer += Time.deltaTime;
-        }
-
-        // This script should only care about spinning itself, nothing else
-
-        private Coroutine _spinWheelCoroutine;
+        // private void AddToTimer()
+        // {
+        //     spinTimer += Time.deltaTime;
+        // }
 
         internal void SpinWheel()
         {
@@ -142,21 +146,29 @@ namespace WheelOfJoy
 
         private IEnumerator SpinWheelCoroutine()
         {
-            // wheel is divided into 8 different question areas
-            // choose a random amount to spin to
-            var radiusSlots = Mathf.Round(Random.Range(10f, 50f)); // can go 1.3 - 6.2 circles
+            var wait = new WaitForSeconds(Time.deltaTime);
+            int slots = Random.Range(120, 250);
 
-            var deltaTime = Time.deltaTime;
-            // will take a second to rotate if framerate is 60 and speed is 1f
-            var interpolation = (360f / 8f) * deltaTime * (1f + (1f / 3f));
-            var wait = new WaitForSeconds(deltaTime);
-            while (radiusSlots > 0)
+            while (slots % 8 != 0)
             {
-                radiusSlots -= interpolation;
-                yield return wait;
+                slots++;
             }
 
+            Debug.Log(slots);
+
+            for (int i = slots; i > 0; i--)
+            {
+                float w = (i * (i * 0.5f)) / 100;
+                transform.GetChild(0).Rotate(new Vector3(0, 0, -w), Space.Self);
+                yield return wait;
+            }
             _spinWheelCoroutine = null;
+            OnWheelSpinEnded();
+        }
+
+        private void OnWheelSpinEnded()
+        {
+            Debug.Log("spinned");
         }
     }
 }

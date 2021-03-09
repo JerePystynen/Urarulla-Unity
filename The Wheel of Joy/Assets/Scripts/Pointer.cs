@@ -23,13 +23,13 @@ namespace WheelOfJoy
         };
 
         private LuckWheel theWheelScript;
-        private jsonTest jsonScript;
+        private JsonData jsonScript;
         private BoxCollider boxCol;
 
         private void Start()
         {
             //Searches for the object which has the JSON script attached
-            jsonScript = FindObjectOfType<jsonTest>();
+            jsonScript = FindObjectOfType<JsonData>();
             jsonObject = jsonScript.gameObject;
 
             //Searches for the object which has the WHEEL script attached
@@ -42,21 +42,21 @@ namespace WheelOfJoy
             boxCol.enabled = false;
         }
 
-        private void Update()
-        {
-            // if the wheel is in the state of not spinning and the first spin has been done
-            // the pointers collider is enabled which can then detect the colors of the wheel
-            if (theWheelScript.canSpin && firstSpin)
-            {
-                boxCol.enabled = true;
-            }
-            // if the above mentioned conditions are not met disables the collider
-            // Usually when the wheel is spinning so it doesnt detect the colors while spinning and only when stopped
-            else
-            {
-                boxCol.enabled = false;
-            }
-        }
+        // private void Update()
+        // {
+        //     // if the wheel is in the state of not spinning and the first spin has been done
+        //     // the pointers collider is enabled which can then detect the colors of the wheel
+        //     if (theWheelScript.canSpin && firstSpin)
+        //     {
+        //         boxCol.enabled = true;
+        //     }
+        //     // if the above mentioned conditions are not met disables the collider
+        //     // Usually when the wheel is spinning so it doesnt detect the colors while spinning and only when stopped
+        //     else
+        //     {
+        //         boxCol.enabled = false;
+        //     }
+        // }
 
         private void OnTriggerEnter(Collider coll)
         {

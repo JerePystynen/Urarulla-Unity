@@ -5,7 +5,7 @@ using TMPro;
 
 namespace WheelOfJoy
 {
-    public class jsonTest : MonoBehaviour
+    public class JsonData : MonoBehaviour
     {
         private Questions questionsInJsonTEMP;
         public Questionss answeredQuestions;
