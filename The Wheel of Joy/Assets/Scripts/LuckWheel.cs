@@ -36,11 +36,17 @@ namespace WheelOfJoy
 
         // private float rotateSpeed = 1f;
 
+        private Transform _wheel;
+
+        private bool IsMainMenuAsBackgroundActive => GameManager.Instance.menusManager.CurrentActiveMenu == 0;
+
         // This script should only care about spinning itself, nothing else
         private Coroutine _spinWheelCoroutine;
 
         private void Start()
         {
+            _wheel = transform.GetChild(0);
+
             // pointerScript = FindObjectOfType<Pointer>();
             // pointerObj = pointerScript.gameObject;
 
@@ -66,6 +72,11 @@ namespace WheelOfJoy
 
             // buttonActivationTimer += Time.deltaTime;
             // enableTimer += Time.deltaTime;
+
+            if (IsMainMenuAsBackgroundActive)
+            {
+                _wheel.Rotate(new Vector3(0f, 0f, -8f), Space.Self);
+            }
 
             // if (canSpin)
             // {
@@ -147,7 +158,7 @@ namespace WheelOfJoy
         private IEnumerator SpinWheelCoroutine()
         {
             var wait = new WaitForSeconds(Time.deltaTime);
-            int slots = Random.Range(120, 250);
+            int slots = Random.Range(100, 400);
 
             while (slots % 8 != 0)
             {
@@ -159,7 +170,7 @@ namespace WheelOfJoy
             for (int i = slots; i > 0; i--)
             {
                 float w = (i * (i * 0.5f)) / 100;
-                transform.GetChild(0).Rotate(new Vector3(0, 0, -w), Space.Self);
+                _wheel.Rotate(new Vector3(0, 0, -w), Space.Self);
                 yield return wait;
             }
             _spinWheelCoroutine = null;
@@ -168,7 +179,7 @@ namespace WheelOfJoy
 
         private void OnWheelSpinEnded()
         {
-            Debug.Log("spinned");
+            Debug.Log("spinned: " + _wheel.localEulerAngles.z);
         }
     }
 }

@@ -4,9 +4,12 @@ namespace WheelOfJoy
 {
     public class SelectionRayProvider : MonoBehaviour, IRayProvider
     {
+        private Camera _camera;
+
         public Ray CreateRay()
         {
-            return Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (_camera == null) _camera = Camera.main;
+            return _camera.ScreenPointToRay(Input.mousePosition);
         }
     }
 }

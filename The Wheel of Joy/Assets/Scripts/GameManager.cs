@@ -14,6 +14,9 @@ namespace WheelOfJoy
         Transform wheel;
         public bool isGameActive;
 
+        internal MenusManager menusManager;
+        internal void SetMenuActive(int index) => menusManager.SetMenu(index);
+
         private void Awake()
         {
             // create singleton instance
@@ -23,6 +26,8 @@ namespace WheelOfJoy
                 return;
             }
             Instance = this;
+            
+            menusManager = GetComponent<MenusManager>();
         }
 
         private void Start()
@@ -32,7 +37,6 @@ namespace WheelOfJoy
 
         private void Update()
         {
-            wheel.Rotate(new Vector3(0f, 0f, -8f), Space.Self);
         }
     }
 }
