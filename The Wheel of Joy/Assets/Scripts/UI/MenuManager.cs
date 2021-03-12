@@ -1,11 +1,12 @@
 using UnityEngine;
+using System.Linq;
 
 namespace WheelOfJoy
 {
     public class MenuManager : MonoBehaviour, IUI
     {
-        private Transform _camera;
-        private Camera _cam;
+        internal new Transform camera;
+        internal Camera cam;
         private AudioListener _audioListener;
         
         private Camera _uicam;
@@ -20,11 +21,11 @@ namespace WheelOfJoy
         {
             startName = name;
 
-            _cam = GetComponent<Camera>();
-            _camera = _cam.transform;
-            _audioListener = _camera.GetComponent<AudioListener>();
+            cam = GetComponentInChildren<Camera>();
+            camera = cam.transform;
+            _audioListener = camera.GetComponent<AudioListener>();
             
-            foreach (Transform element in transform)
+            foreach (Transform element in camera)
             {
                 Camera camera = element.GetComponent<Camera>();
                 if (camera != null) 
@@ -46,10 +47,11 @@ namespace WheelOfJoy
         {
             name = (value ? "(Active) " : "(Inactive) ") + startName;
 
-            _cam.enabled = value;
+            cam.enabled = value;
             _audioListener.enabled = value;
             
             _uicamera?.SetActive(value);
+
             if (_uicam != null) _uicam.enabled = value;
             
             _canvasObj?.SetActive(value);

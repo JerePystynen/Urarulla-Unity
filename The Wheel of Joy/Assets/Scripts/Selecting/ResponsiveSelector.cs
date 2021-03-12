@@ -5,7 +5,7 @@ namespace WheelOfJoy
 {
     public class ResponsiveSelector : MonoBehaviour, ISelector
     {
-        [SerializeField] private List<Selectable> selectables;
+        [SerializeField] private LuckWheel selectable;
 
         private Transform _selection;
 
@@ -13,17 +13,12 @@ namespace WheelOfJoy
         {
             _selection = null;
 
-            for (int i = 0; i < selectables.Count; i++)
-            {
-                var vector1 = ray.direction;
-                var target = selectables[i].surrogateDotTarget != null
-                    ? selectables[i].surrogateDotTarget.position
-                    : selectables[i].transform.position;
-
-                var vector2 = target - ray.origin;
-                var lookPercentage = Vector3.Dot(vector1.normalized, vector2.normalized);
-                selectables[i].SetDotProduct(lookPercentage);
-            }
+            var vector1 = ray.direction;
+            var target = selectable.wheel.position;
+            var vector2 = target - ray.origin;
+            
+            var lookPercentage = Vector3.Dot(vector1.normalized, vector2.normalized);
+            selectable.SetDotProduct(lookPercentage);
         }
 
         public Transform GetSelection()

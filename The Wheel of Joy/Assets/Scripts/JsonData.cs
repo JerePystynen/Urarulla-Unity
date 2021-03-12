@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 namespace WheelOfJoy
 {
@@ -59,10 +60,12 @@ namespace WheelOfJoy
         public void Run(int colorNum)
         {
             colorNum = currentQuestionColorNum;
+            
             // Reads the json file which is manualy inputted (Temporary)
             questionsInJsonTEMP = JsonUtility.FromJson<Questions>(JSONfile.text);
+            
             // saves the number of question availeable to be used everywhere
-            int randomNumber = Random.Range(1, AmountOfQuestions);
+            var randomNumber = Random.Range(1, AmountOfQuestions);
 
             if (randomNumber == 0)
             {
@@ -71,22 +74,22 @@ namespace WheelOfJoy
             else
             {
                 bool answered = false;
-                foreach (List<int> list in answeredQuestions.answeredsList)
+                foreach (var list in answeredQuestions.answeredsList)
                 {
                     if (answered)
                         break;
 
-                    foreach (int number in list)
+                    foreach (var number in from int number in list where list.Contains(number) select number)
                     {
-                        if (list.Contains(number))
-                        {
-                            answered = true;
-                            rollNum(number);
-                            break;
-                        }
+                        answered = true;
+                        rollNum(number);
+                        break;
                     }
                 }
-                if (answered) return;
+
+                if (answered)
+                    return;
+
                 RunQuestion(randomNumber);
             }
         }
@@ -137,7 +140,7 @@ namespace WheelOfJoy
 
                 // adds current question to lists that makes so that it doesnt come up without restrating
 
-                foreach (List<int> list in answeredQuestions.answeredsList)
+                foreach (var list in answeredQuestions.answeredsList)
                 {
                     // if (currentQuestionColorNum != System.Array.IndexOf(list.ToArray(), ))
                     //     continue;

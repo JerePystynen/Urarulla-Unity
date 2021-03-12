@@ -1,30 +1,17 @@
-using System.Linq;
 using UnityEngine;
 
 namespace WheelOfJoy
 {
-    public class MenusManager : MonoBehaviour
+    public class MenusManager : Singleton<MenusManager>
     {
-        [SerializeField] private MenuManager[] menus;
-        internal int CurrentActiveMenu;
+        [SerializeField]
+        private MenuManager[] menus;
+
+        internal int CurrentActiveMenu { get; private set; }
 
         private void Start()
         {
-            OrderMenusByDepth();
             SetMenu();
-        }
-
-        private void Update()
-        {
-            // if (Application.isPlaying) return;
-            if (Input.GetKeyDown(KeyCode.A)) GoPrevious();
-            if (Input.GetKeyDown(KeyCode.D)) GoNext();
-        }
-
-        private void OrderMenusByDepth()
-        {
-            var ordered = menus.OrderByDescending(x => x.GetComponent<Camera>()?.depth);
-            menus = (from el in ordered select el).ToArray();
         }
 
         private void GoPrevious()
@@ -39,6 +26,11 @@ namespace WheelOfJoy
             if (CurrentActiveMenu < menus.Length - 1) CurrentActiveMenu++;
             else CurrentActiveMenu = 0;
             SetMenu(CurrentActiveMenu);
+        }
+
+        public void SelectMenu(MenuManager manager)
+        {
+            SetMenu(System.Array.IndexOf(menus, manager));
         }
 
         internal void SetMenu(int index = 0)
