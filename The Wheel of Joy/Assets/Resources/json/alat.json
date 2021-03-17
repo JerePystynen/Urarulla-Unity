@@ -1,0 +1,28 @@
+{
+    "alat":{
+        "Tietojenkäsittely ja tietoliikenteen ala":{
+            "ominaisuudet":[
+                "luova",
+				"looginen ajattelu",
+				"omatoimisuus",
+				"yhteistyötaidot",
+				"yritteliäs"
+            ]
+        },
+        "Tekniikan ala":{
+            "ominaisuudet":[
+				"kädentaidot",
+				"looginen ajattelu",
+				"yhteistyötaidot"
+			]
+        },
+        "Humanistisen ja taidealan sekä taideteollisuusala":{
+            "ominaisuudet":[
+                "luova",
+				"kädentaidot",
+				"yritteliäs",
+				"audiovisuaalisen viestinnän osaaminen"
+            ]
+        }
+    }
+}
