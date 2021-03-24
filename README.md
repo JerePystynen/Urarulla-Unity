@@ -1,6 +1,4 @@
-# DiMe - PeliKlaani Peliprojekti - Onnenpeli
-
-Urarulla
+# DiMe - PeliKlaani Peliprojekti - Urarulla
 
 Urarulla on minun kehittelemä Unity projekti, Mikkelin kaupungin Nuorten Työpajalle.
 
