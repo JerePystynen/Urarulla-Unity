@@ -1,9 +1,7 @@
 # DiMe - PeliKlaani Peliprojekti - Onnenpeli
 
-{LISÄÄ SUOMENNOS}
+Urarulla
 
-------------------------------------------------------------------------------
+Urarulla on minun kehittelemä Unity projekti, Mikkelin kaupungin Nuorten Työpajalle.
 
-This is the Wheel of Joy Unity project for Mikkelin kaupunki, nuorten työpajat.
-
-The idea for this game is to tell about different job opportunities.
+Ideana projektilla on saada nuoret ajattelemaan mahdollisista uusista työopintomahdollisuuksista.
