@@ -46,10 +46,6 @@ namespace Urarulla
             Metsakoneenkuljettaja
         };
 
-        private void Start()
-        {
-        }
-
         internal void SetData(int index)
         {
             tutkintoLista.Clear();
