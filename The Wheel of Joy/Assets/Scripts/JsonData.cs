@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 
-namespace WheelOfJoy
+namespace Urarulla
 {
     public class JsonData : MonoBehaviour
     {

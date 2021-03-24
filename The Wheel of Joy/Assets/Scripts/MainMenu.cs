@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace WheelOfJoy
+namespace Urarulla
 {
     public class MainMenu : MonoBehaviour
     {

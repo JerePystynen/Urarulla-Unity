@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace WheelOfJoy
+namespace Urarulla
 {
     [CustomEditor(typeof(MenuManager))]
     public class MenuManagerEditor : Editor

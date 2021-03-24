@@ -1,0 +1,55 @@
+{
+    "ominaisuuskysymykset":[
+        {
+            "categories":[
+                "physical"
+            ],
+            "titles":[
+                "Tykkäätkö tehdä fyysistä työtä?",
+                "Tykkätkö fyysisestä työstä?"
+            ],
+            "answers":[
+                {
+                    "text":"Tietenkin. Se käy saliharjoittelusta.",
+                    "type":"positive",
+                    "replies":[
+                        "Eli salilainen olet. Sen jo näkeekin!"
+                    ]
+                },
+                {
+                    "text":"Tykkään käydä juoksemassa.",
+                    "type":"semi-positive",
+                    "replies":[
+                        "Fyysinen työ ei ole juoksemista kummoisempaa."
+                    ]
+                },
+                {
+                    "text":"Teen mieluummin jotakin muuta.",
+                    "type":"negative",
+                    "replies":[
+                        "Katsotaan sitten jotakin muuta."
+                    ]
+                },
+                {
+                    "text":"Vain palkkaa vastaan.",
+                    "type":"attitude-greed",
+                    "replies":[
+                        "Heh, työelämään oikea asenne."
+                    ]
+                }
+            ]
+        },
+        {
+            "titles":[
+                "Tykkätkö työskennellä tiimissä?",
+                "Mites ajattelet tiimityöskentelystä?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "category":""
+                }
+            ]
+        }
+    ]
+}

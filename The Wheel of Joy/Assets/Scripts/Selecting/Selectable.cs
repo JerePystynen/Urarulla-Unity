@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace WheelOfJoy
+namespace Urarulla
 {
     public class Selectable : MonoBehaviour, ISelectionResponse
     {

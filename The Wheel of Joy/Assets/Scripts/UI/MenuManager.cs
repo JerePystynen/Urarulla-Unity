@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-namespace WheelOfJoy
+namespace Urarulla
 {
     public class MenuManager : MonoBehaviour, IUI
     {

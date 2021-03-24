@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace WheelOfJoy
+namespace Urarulla
 {
     public class LuckWheelLight : MonoBehaviour
     {

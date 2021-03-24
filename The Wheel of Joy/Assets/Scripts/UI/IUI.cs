@@ -1,4 +1,4 @@
-namespace WheelOfJoy
+namespace Urarulla
 {
     public interface IUI
     {

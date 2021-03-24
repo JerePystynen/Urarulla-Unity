@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WheelOfJoy
+namespace Urarulla
 {
     public class ResponsiveSelector : MonoBehaviour, ISelector
     {

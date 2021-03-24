@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WheelOfJoy
+namespace Urarulla
 {
     public class Pointer : MonoBehaviour
     {

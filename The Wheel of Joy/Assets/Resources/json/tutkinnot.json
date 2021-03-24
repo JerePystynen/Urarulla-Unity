@@ -1,14 +1,14 @@
 {
-	"tutkinnot":{
-		"Tieto- ja viestintätekniikan ammattitutkinto":{
+	"tutkinnot":[
+		{
+			"id":"Ohjelmistokehittäjä",
+			"nimi":"Tieto- ja viestintätekniikan ammattitutkinto",
 			"ala":"Tietojenkäsittely ja tietoliikenteen ala",
 			"erityisominaisuudet":[
 				"suunnittelutaidot",
 				"tietoteknillinen osaaminen"
 			],
-			"kuvaus":[
-				"Työ on asiakaslähtöistä, monipuolista ja vaihtelevaa. Suunnittelet"
-			],
+			"kuvaus":"Työ on asiakaslähtöistä, monipuolista ja vaihtelevaa. Suunnittelet",
 			"työmahdollisuudet":[
 				"Voit siirtyä alan sisällä työtehtävästä toiseen. Voit työskennellä monipuolisesti erilaisten tieto- ja viestintätekniikka-alan yritysten ja organisaatioiden sekä niitä tukevien organisaatioiden palvelu-, asiantuntija- tai tukipalvelutehtävissä.",
 				"Voit toimia myös alan yrittäjänä.",
@@ -20,99 +20,68 @@
 				"Koska työskentely useimmiten on projektimuotoista, tarvitset työssäsi yhteistyö- ja vuorovaikutustaitoja. Lisäksi alalla käytetään laajasti englannin kieltä sekä kirjallisessa että suullisessa viestinnässä."
 			],
 			"työtilanne":{
-				"keskipalkka":0,
-				"keskikuvaus":"Perustutkinnon suorittanut pääsee jo käytännön työelämään kiinni.",
-				"(junior) työnimikkeet":{
-					"JUNIOR TASON OPPINUT TIENAA":2600
+				"kuvaus":"Työvoimapula, hyvinvointiteknologian lisääntyminen, pelituotannon kasvu ja koodarien kysyntä ovat lisäntyneet huomattavasti viime vuosien aikana.",
+				"mikkeli":{
+					"keskipalkka":2200
 				},
-				"(senior) työnikkeet":{
-					"KORKEIMMAN TASON OPPINUT TIENAA":3750,
-					"IT-arkkitehti":{
-						"palkka":4950,
-						"linkit":[]
-					},
-					"IT-päällikkö":{
-						"palkka":4950,
-						"linkit":[]
-					},
-					"IT-konsultti":{
-						"palkka":4500,
-						"linkit":[]
-					},
-					"Sovelluskehittäjä":{
-						"palkka":3500,
-						"linkit":[]
-					},
-					"C++ ohjelmoija":{
-						"palkka":3940,
-						"linkit":[]
-					},
-					".Net-ohjelmoija":{
-						"palkka":3870,
-						"linkit":[]
-					},
-					"Python-ohjelmoija":{
-						"palkka":3690,
-						"linkit":[]
-					},
-					"Javascript-ohjelmoija":{
-						"palkka":3480,
-						"linkit":[]
-					}
+				"helsinki":{
+					"keskipalkka":2600
 				},
-				"lande":{
-					"keskipalkka":0,
-					"kuvaus":"Työvoimapula, hyvinvointiteknologian lisääntyminen, pelituotannon kasvu ja koodarien kysyntä ovat lisäntyneet.",
-					"linkit työpaikkoihin":{
-						"NIMIKE":0,
-						"linkit":[]
-					}
-				},
-				"stadi":{
-					"keskipalkka":0,
-					"kuvaus":"",
-					"linkit työpaikkoihin":{
-					}
-				},
-				"lähteet":[
-					"https://www.mikrobitti.fi/uutiset/kuulostaako-3750-kk-hyvalta-nain-it-alalla-maksetaan-palkkaa-suomessa/f789ec50-a60c-4e01-83ff-f55e69b43402"
+				"linkit":[
+					"https://www.mikrobitti.fi/uutiset/kuulostaako-3750-kk-hyvalta-nain-it-alalla-maksetaan-palkkaa-suomessa/f789ec50-a60c-4e01-83ff-f55e69b43402",
+					"https://www.oph.fi/sites/default/files/documents/ict-alan-tyoelamatoimikunnan-tilannekuva-2018-2019.pdf"
 				]
 			},
 			"lisätietoa":[
-				"https://opintopolku.fi/wp/ammatillinen-koulutus/mita-ammatillisessa-voi-opiskella/tietojenkasittely-ja-tietoliikenne-ict-ammatillisessa-koulutuksessa/",
-				"https://www.oph.fi/sites/default/files/documents/ict-alan-tyoelamatoimikunnan-tilannekuva-2018-2019.pdf"
+				"https://www.ammattiosaaja.fi/ammatit/ohjelmistokehittaja/",
+				"https://opintopolku.fi/wp/ammatillinen-koulutus/mita-ammatillisessa-voi-opiskella/tietojenkasittely-ja-tietoliikenne-ict-ammatillisessa-koulutuksessa/"
+			],
+			"videot":[
+				"https://youtu.be/jdVucATSKnU"
+			],
+			"kuvat":[
+				
 			]
 		},
-		"Tieto- ja liikennetekniikan ammattitutkinto":{
+		{
+			"tutkinto":"Tieto- ja liikennetekniikan ammattitutkinto",
 			"ala":"Tietojenkäsittely ja tietoliikenteen ala",
 			"kuvaus":"Tutkinto on suuntautuminen ict-puolelle it:n amk-tutkinnossa"
 		},
-		"Rakennusalan tutkinto":{
+		{
+			"tutkinto":"Rakennusalan tutkinto",
 			"ala":"Tekniikan ala",
 			"erityisominaisuudet":[
 				"suunnitelutaidot",
 				"teknillinen tietämys"
 			]
 		},
-		"Elintarvikealan tutkinto":{
+		{
+			"tutkinto":"Elintarvikealan tutkinto",
 			"ala":"Tekniikan ala",
 			"kuvaus":[
 				"Voit työskennellä elintarvikkeiden valmistus-, pakkaus- tai varastointitehtävissä tai suurteollisuuden erilaisissa työtehtävissä.",
 				"Elintarvikealan erikoisammattitutkinnon ja leipomoalan erikoisammattitutkinnon suorittaneet toimivat elintarviketeollisuuden ja leipomoalan esimies- tai asiantuntijatehtävissä."
 			]
 		},
-		"Materiaali- ja prosessitekniikan tutkinto":{
+		{
+			"tutkinto":"Materiaali- ja prosessitekniikan tutkinto",
 			"ala":"Tekniikan ala"
 		},
-		"Media-alan ja kuvallisen ilmaisun perustutkinto":{
+		{
+			"tutkinto":"Media-alan ja kuvallisen ilmaisun perustutkinto",
 			"ala":"Humanistisen ja taidealan sekä taideteollisuusala",
-			"erityisominaisuudet":[]
+			"erityisominaisuudet":[
+
+			]
 		},
-		"Musiikkialan perustutkinto":{
+		{
+			"tutkinto":"Musiikkialan perustutkinto",
 			"ala":"Humanistisen ja taidealan sekä taideteollisuusala"
 		},
-		"Sähkö- ja automaatioalan perustutkinto":{
+		{
+			"tutkinto":"Sähkö- ja automaatioalan perustutkinto",
 			"link":"https://www.ammattiosaaja.fi/ammatit/sahkoasentaja/"
 		}
-	}
+	]
 }
