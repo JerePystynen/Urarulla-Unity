@@ -85,6 +85,6 @@ namespace Urarulla
             }
         }
         
-        public void SelectAnswer(int index) => manager.SelectAnswer(_answers[index].category);
+        public void SelectAnswer(int index) => manager.SelectAnswer(_answers[index]);
     }
 }

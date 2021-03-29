@@ -24,8 +24,9 @@ namespace Urarulla
         
         private float _angle;
         private float _dotPercentage;
+        private int _targetIndex;
 
-        private bool IsMainMenuAsBackgroundActive => GameManager.Instance.menusManager.CurrentActiveMenu == 0;
+        private bool IsMainMenuActive => GameManager.Instance.menusManager.CurrentActiveMenu == 3;
 
         private Outline _outline;
         private Coroutine _spinWheelCoroutine;
@@ -45,12 +46,12 @@ namespace Urarulla
 
         private void Update()
         {
-            if (!IsMainMenuAsBackgroundActive && Input.GetKeyDown(KeyCode.Space))
+            if (IsMainMenuActive && Input.GetKeyDown(KeyCode.Space))
             {
                 SpinWheel();
             }
 
-            if (IsMainMenuAsBackgroundActive)
+            if (!IsMainMenuActive)
             {
                 wheel.Rotate(new Vector3(0f, 0f, -8f), Space.Self);
             }
@@ -74,7 +75,11 @@ namespace Urarulla
             ){
                 _lightObjs[c].SetActive(b);
                 _wheelLights[c].angle = a;
-                if (b) _targetSection = light;
+                if (b)
+                {
+                    _targetSection = light;
+                    _targetIndex = System.Array.IndexOf(_lights, light);
+                }
             }
         }
 
@@ -95,17 +100,9 @@ namespace Urarulla
                 yield return wait;
             }
             _spinWheelCoroutine = null;
-            OnWheelSpinEnded();
-        }
-
-        private void OnWheelSpinEnded()
-        {
-            if (_targetSection == null)
-                return;
-
-            Debug.Log("target: " + _targetSection.name);
-
-            UIMainScene.Instance.AskQuestion();
+            
+            if (_targetSection != null)
+                UIMainScene.Instance?.AskQuestion(_targetIndex);
         }
 
         public void OnSelect(Transform selection)
@@ -120,7 +117,7 @@ namespace Urarulla
         {
             _dotPercentage = distance;
 
-            bool isMouseOnWheelAndInGame = IsMouseOnWheel(distance) && !IsMainMenuAsBackgroundActive;
+            bool isMouseOnWheelAndInGame = IsMouseOnWheel(distance) && IsMainMenuActive;
 
             SetWheelOutline(isMouseOnWheelAndInGame);
 

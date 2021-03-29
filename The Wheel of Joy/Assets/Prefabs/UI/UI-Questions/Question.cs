@@ -11,6 +11,7 @@ namespace Urarulla
     [Serializable]
     public struct Question
     {
+        public string[] categories;
         public string[] titles;
         public Answer[] answers;
     }
@@ -19,6 +20,7 @@ namespace Urarulla
     public struct Answer
     {
         public string text;
-        public string category;
+        public string type;
+        public string[] responses;
     }
 }

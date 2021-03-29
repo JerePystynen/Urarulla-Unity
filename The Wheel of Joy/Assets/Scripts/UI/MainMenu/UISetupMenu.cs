@@ -19,6 +19,9 @@ namespace Urarulla
 
         private void AddNewPlayer()
         {
+            // GameManager.Instance.players.Add(new Player("PLAYER 2", null));
+            GameManager.AddPlayer("PLAYER 2");
+
             Debug.Log("todo: add a new player");
         }
         

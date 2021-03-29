@@ -2,6 +2,8 @@
     "ominaisuuskysymykset":[
         {
             "categories":[
+                "physical",
+                "handy",
                 "physical"
             ],
             "titles":[
@@ -12,42 +14,504 @@
                 {
                     "text":"Tietenkin. Se käy saliharjoittelusta.",
                     "type":"positive",
-                    "replies":[
+                    "responses":[
                         "Eli salilainen olet. Sen jo näkeekin!"
                     ]
                 },
                 {
                     "text":"Tykkään käydä juoksemassa.",
                     "type":"semi-positive",
-                    "replies":[
+                    "responses":[
                         "Fyysinen työ ei ole juoksemista kummoisempaa."
                     ]
                 },
                 {
                     "text":"Teen mieluummin jotakin muuta.",
                     "type":"negative",
-                    "replies":[
+                    "responses":[
                         "Katsotaan sitten jotakin muuta."
                     ]
                 },
                 {
                     "text":"Vain palkkaa vastaan.",
                     "type":"attitude-greed",
-                    "replies":[
+                    "responses":[
                         "Heh, työelämään oikea asenne."
                     ]
                 }
             ]
         },
         {
+            "categories":[
+                "team"
+            ],
             "titles":[
-                "Tykkätkö työskennellä tiimissä?",
-                "Mites ajattelet tiimityöskentelystä?"
+                "Pidätkö työskentelystä muiden kanssa?",
+                "Mitä ajattelet tiimityöstä?",
+                "Tiimi on paras, eikö vaan?"
             ],
             "answers":[
                 {
-                    "text":"",
-                    "category":""
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "team"
+            ],
+            "titles":[
+                "Oletko luonteeltasi asiakaspalveluhenkinen?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "creative",
+                "handy",
+                "leader"
+            ],
+            "titles":[
+                "Pidätkö ruuanlaitosta?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "creative",
+                "handy",
+                "team"
+            ],
+            "titles":[
+                "Kokkaatko ruokaa muiden kanssa? Onko sinulla vaikka mummo, joka inspiroi hyväksi ruoanlaittajaksi?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "Kuka nyt ei tykkää hyvästä ruoasta?"
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Noh, minulla ainakin oli..."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "creative",
+                "creative"
+            ],
+            "titles":[
+                "Oletko luova persoona?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "creative",
+                "creative",
+                "handy",
+                "team",
+                "physical"
+            ],
+            "titles":[
+                "Pidätkö pulmien ratkomisesta?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "handy",
+                "handy",
+                "handy",
+                "team"
+            ],
+            "titles":[
+                "Pidätkö matematiikasta?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "physical",
+                "team",
+                "handy"
+            ],
+            "titles":[
+                "Pidätkö työskentelystä luonnossa?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "handy",
+                "handy",
+                "creative",
+                "physical",
+                "leader",
+                "team"
+            ],
+            "titles":[
+                "Pidätkö rakentamisesta?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "handy",
+                "handy",
+                "",
+                "handy",
+                "leader",
+                "team"
+            ],
+            "titles":[
+                "Vietätkö vapaa-ajalla aikaa tietokoneiden kanssa?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "physical",
+                "physical",
+                "team"
+            ],
+            "titles":[
+                "Pidätkö ajanviettämisestä luonnossa tai ulkona?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "creative",
+                "handy",
+                "creative"
+            ],
+            "titles":[
+                "Oletko luonteeltasi järjestelmällinen?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "team",
+                "team",
+                "",
+                "team",
+                "leader"
+            ],
+            "titles":[
+                "Pidätkö muiden auttamisesta?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "leader",
+                "leader",
+                "team"
+            ],
+            "titles":[
+                "Oletko enemmän aamuihminen vai iltaihminen?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "handy",
+                "leader",
+                "team"
+            ],
+            "titles":[
+                "Pidätkö ajatuksesta työskennellä kotoa käsin?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "leader"
+            ],
+            "titles":[
+                "Oletko luonteeltasi enemmän itsenäinen?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "team",
+                "team"
+            ],
+            "titles":[
+                "Työskentelisitkö mieluummin säännöllisin työajoin?"
+            ],
+            "answers":[
+                {
+                    "text":"Kyllä.",
+                    "type":"positive",
+                    "responses":[
+                        "OK."
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+                "leader",
+                "leader",
+                "physical",
+                "leader"
+            ],
+            "titles":[
+                "Pidätkö ajatuksesta työskennellä kolmivuorotyössä?"
+            ],
+            "answers":[
+                {
+                    "text":"Rakastan hoitaa asiat niin.",
+                    "type":"positive",
+                    "responses":[
+                        "Niin sitä pitää!"
+                    ]
+                },
+                {
+                    "text":"Ei.",
+                    "type":"negative",
+                    "responses":[
+                        "Ei sitten."
+                    ]
                 }
             ]
         }

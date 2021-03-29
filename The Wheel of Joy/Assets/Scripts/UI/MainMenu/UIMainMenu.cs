@@ -18,6 +18,7 @@ namespace Urarulla
         private void StartButton()
         {
             GameManager.Instance.SetMenuActive(1);
+            GameManager.Instance.players.Add(new Player("Player 1", null));
         }
     }
 }

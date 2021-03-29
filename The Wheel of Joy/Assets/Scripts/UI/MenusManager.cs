@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Urarulla
 {
+    [ExecuteAlways]
     public class MenusManager : Singleton<MenusManager>
     {
         [SerializeField]

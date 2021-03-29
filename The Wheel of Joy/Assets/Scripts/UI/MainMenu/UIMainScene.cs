@@ -5,14 +5,22 @@ namespace Urarulla
 {
     public class UIMainScene : Singleton<UIMainScene>
     {
+        private GameObject questionsObj;
+        private QuestionManager questionManager;
+
         private void Start()
         {
+            questionsObj = transform.Find("questions").gameObject;
+            questionManager = questionsObj.GetComponent<QuestionManager>();
+            questionManager.Ready();
+            questionsObj.SetActive(false);
+
             transform.Find("exit-btn").GetComponent<Button>().onClick.AddListener(delegate { Exit(); });
         }
 
-        public void AskQuestion()
+        internal void AskQuestion(int index)
         {
-            Debug.Log("asking a question...");
+            questionManager.AskRandom();
         }
 
         private void Exit()

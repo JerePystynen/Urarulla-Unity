@@ -17,6 +17,8 @@ namespace Urarulla
         internal MenusManager menusManager;
         internal void SetMenuActive(int index) => menusManager.SetMenu(index);
 
+        public List<Player> players = new List<Player>();
+
         private void Awake()
         {
             // create singleton instance
@@ -37,6 +39,11 @@ namespace Urarulla
 
         private void Update()
         {
+        }
+
+        public static void AddPlayer(string name)
+        {
+            Debug.Log("todo add a new player...");
         }
     }
 }
