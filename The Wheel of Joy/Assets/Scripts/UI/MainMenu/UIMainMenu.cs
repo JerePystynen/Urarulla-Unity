@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +16,7 @@ namespace Urarulla
         private void StartButton()
         {
             GameManager.Instance.SetMenuActive(1);
-            GameManager.Instance.players.Add(new Player("Player 1", null));
+            GameManager.Instance.players.Add(new Player($"Player {GameManager.Instance.players.Count}"));
         }
     }
 }

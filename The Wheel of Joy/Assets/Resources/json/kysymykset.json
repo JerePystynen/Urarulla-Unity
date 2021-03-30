@@ -13,28 +13,28 @@
             "answers":[
                 {
                     "text":"Tietenkin. Se käy saliharjoittelusta.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "Eli salilainen olet. Sen jo näkeekin!"
                     ]
                 },
                 {
                     "text":"Tykkään käydä juoksemassa.",
-                    "type":"semi-positive",
+                    "type":"like",
                     "responses":[
                         "Fyysinen työ ei ole juoksemista kummoisempaa."
                     ]
                 },
                 {
                     "text":"Teen mieluummin jotakin muuta.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Katsotaan sitten jotakin muuta."
                     ]
                 },
                 {
                     "text":"Vain palkkaa vastaan.",
-                    "type":"attitude-greed",
+                    "type":"greed",
                     "responses":[
                         "Heh, työelämään oikea asenne."
                     ]
@@ -53,14 +53,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -77,14 +77,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -103,14 +103,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -129,14 +129,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "Kuka nyt ei tykkää hyvästä ruoasta?"
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Noh, minulla ainakin oli..."
                     ]
@@ -154,14 +154,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -182,14 +182,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -209,14 +209,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -235,14 +235,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -264,14 +264,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -293,14 +293,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -319,14 +319,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -345,14 +345,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -373,14 +373,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -398,17 +398,17 @@
             ],
             "answers":[
                 {
-                    "text":"Kyllä.",
-                    "type":"positive",
+                    "text":"Aamuihminen",
+                    "type":"love",
                     "responses":[
-                        "OK."
+                        "Varhainen mato se linnunkin nappaa, jos uskoo itseensä tarpeeksi."
                     ]
                 },
                 {
-                    "text":"Ei.",
-                    "type":"negative",
+                    "text":"Iltaihminen",
+                    "type":"dislike",
                     "responses":[
-                        "Ei sitten."
+                        "Hmm, oletko vampyyri?"
                     ]
                 }
             ]
@@ -425,14 +425,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -449,14 +449,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -474,14 +474,14 @@
             "answers":[
                 {
                     "text":"Kyllä.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "OK."
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
                     ]
@@ -501,16 +501,207 @@
             "answers":[
                 {
                     "text":"Rakastan hoitaa asiat niin.",
-                    "type":"positive",
+                    "type":"love",
                     "responses":[
                         "Niin sitä pitää!"
                     ]
                 },
                 {
                     "text":"Ei.",
-                    "type":"negative",
+                    "type":"dislike",
                     "responses":[
                         "Ei sitten."
+                    ]
+                }
+            ]
+        }
+    ],
+    "kompakysymykset":[
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Haluaisitko työskennellä nopeasti kehittyvällä alalla?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Haluaisitko työskennellä nopeasti kehittyvällä mediatoimialalla?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Onko sinulla hyvät ongelmanratkaisutaidot?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Oletko luonteeltasi itseohjautuva?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Oletko valmis kehittämään taitojasi jatkuvasti?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Haluaisitko työskennellä pelikehityksen parissa?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Oletko kiinnostunut ruuanlaitosta?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Modaatko pelejä?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Tuunaatko mopoasi, jos sinulla on sellainen tietenkin?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
                     ]
                 }
             ]

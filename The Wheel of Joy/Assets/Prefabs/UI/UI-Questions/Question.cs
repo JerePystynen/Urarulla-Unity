@@ -6,6 +6,7 @@ namespace Urarulla
     public struct Kysymykset
     {
         public Question[] ominaisuuskysymykset;
+        public Question[] kompakysymykset;
     }
 
     [Serializable]

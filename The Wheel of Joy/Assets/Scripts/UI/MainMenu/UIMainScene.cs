@@ -6,7 +6,8 @@ namespace Urarulla
     public class UIMainScene : Singleton<UIMainScene>
     {
         private GameObject questionsObj;
-        private QuestionManager questionManager;
+        internal QuestionManager questionManager;
+        private UIStarChoice starChoice;
 
         private void Start()
         {
@@ -15,12 +16,26 @@ namespace Urarulla
             questionManager.Ready();
             questionsObj.SetActive(false);
 
+            starChoice = transform.GetComponentInChildren<UIStarChoice>(true);
+
             transform.Find("exit-btn").GetComponent<Button>().onClick.AddListener(delegate { Exit(); });
         }
 
         internal void AskQuestion(int index)
         {
-            questionManager.AskRandom();
+            if (index == 0)
+            {
+                // Debug.Log("asking a very difficult question...");
+                // questionManager.
+            }
+            else if (index == 4)
+            {
+                starChoice.Get();
+            }
+            else
+            {
+                questionManager.AskRandomOminaisuus();
+            }
         }
 
         private void Exit()
