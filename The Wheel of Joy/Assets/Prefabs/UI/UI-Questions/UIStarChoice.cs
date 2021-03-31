@@ -4,7 +4,7 @@ namespace Urarulla
 {
     public class UIStarChoice : MonoBehaviour
     {
-        public void Get()
+        public void GivePlayerChoice()
         {
             gameObject.SetActive(true);
         }

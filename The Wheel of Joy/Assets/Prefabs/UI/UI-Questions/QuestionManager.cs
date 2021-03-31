@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 namespace Urarulla
 {
@@ -38,10 +38,20 @@ namespace Urarulla
         {
             if (kysymykset.ominaisuuskysymykset == null)
             {
-                Debug.LogError("Error: JSON kysymys data is missing");
+                Debug.LogError("Error: ominaisuuskysymys data is missing!");
                 return;
             }
-            SetQuestion(kysymykset.ominaisuuskysymykset[Random.Range(0, kysymykset.ominaisuuskysymykset.Length - 1)]);
+            SetQuestion(kysymykset.ominaisuuskysymykset.Random());
+        }
+
+        internal void AskRandomKompa()
+        {
+            if (kysymykset.kompakysymykset == null)
+            {
+                Debug.LogError("Error: ominaisuuskysymys data is missing!");
+                return;
+            }
+            SetQuestion(kysymykset.kompakysymykset.Random());
         }
 
         internal void SetQuestion(Question question)
@@ -49,7 +59,7 @@ namespace Urarulla
             gameObject.SetActive(true);
             _currentQuestion = question;
             _titleTxt.text = "Ominaisuuskysymykset";
-            _questionTxt.text = question.titles[Random.Range(0, question.titles.Length)];
+            _questionTxt.text = question.titles.Random();
             _answers.SetAnswer(this, question);
         }
         
@@ -113,7 +123,7 @@ namespace Urarulla
                 }
             }
             gameObject.SetActive(false);
-            ResponseManager.Instance.Display(answer.responses[Random.Range(0, answer.responses.Length)], "talk");
+            ResponseManager.Instance.Display(answer.responses.Random(), "talk");
         }
 
         private string[] GetRewardedCategories(string type, string[] categories)

@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
-using DG.Tweening;
 
 namespace Urarulla
 {
@@ -14,15 +12,23 @@ namespace Urarulla
         public bool goalReached;
 
         public GameObject progressBar;
-        private Image[] progressBars;
+        private List<Image> progressBars = new List<Image>();
+        private List<float> progressions = new List<float>();
 
         private void Start()
         {
             flag = transform.Find("progression/flag-img").GetComponent<RectTransform>();
 
-            progressBars = (from player in GameManager.Instance.players
-                let bar = Instantiate(progressBar, transform.Find("progression/bar")).transform
-                select bar.GetComponent<Image>()).ToArray();
+            for (var i = 0; i < GameManager.Instance.players.Count; i++)
+            {
+                var player = GameManager.Instance.players[i];
+                var bar = Instantiate(progressBar, transform.Find("progression/bar")).transform;
+                bar.name = $"progress-bar ({i})";
+                var img = bar.GetComponent<Image>();
+                progressBars.Add(img);
+                img.fillAmount = 0;
+                progressions.Add(0);
+            }
 
             StartCoroutine(MoveFlagCoroutine());
         }
@@ -33,6 +39,25 @@ namespace Urarulla
             if (Input.GetKeyDown(KeyCode.S)) SetProgression(0, .2f);
             if (Input.GetKeyDown(KeyCode.D)) SetProgression(0, .75f);
             if (Input.GetKeyDown(KeyCode.F)) SetProgression(0, 1);
+
+            for (var i = 0; i < progressions.Count; i++)
+            {
+                var bar = progressBars[i];
+                if (!bar.enabled) continue;
+                if (bar.fillAmount >= .9985f)
+                {
+                    UIMainScene.Instance.SetTutkintoInfoActive(i, GetTutkinto());
+                    bar.enabled = false;
+                    continue;
+                }
+                bar.fillAmount = Mathf.SmoothStep(bar.fillAmount, Mathf.Clamp(progressions[i], 0, 1), 27 * Time.deltaTime);
+            }
+        }
+
+        private TutkintoNimike GetTutkinto()
+        {
+            Debug.Log("todo: add a way to get which is the closest right player TutkintoNimike...");
+            return null;
         }
 
         private IEnumerator MoveFlagCoroutine()
@@ -44,20 +69,7 @@ namespace Urarulla
             StartCoroutine(MoveFlagCoroutine());
         }
 
-        internal void SetProgression(int player, float amount) => StartCoroutine(SetProgressionCoroutine(player, amount));
-        private IEnumerator SetProgressionCoroutine(int player, float amount)
-        {
-            // // progressBars[player].fillAmount
-            // DOTween.To(progressBars[player].fillAmount, 0f, amount, 0.2f);
-
-            // var d = LeanTween.value(progressBars[player].fillAmount, amount, .7f).setEaseOutQuad();
-            // while (d != null)
-            // {
-            //     progressBars[player].fillAmount = d.lastVal;
-            //     yield return new WaitForSeconds(Time.deltaTime);
-            // }
-
-            yield return null;
-        }
+        internal void AddProgression(int player, float value) => progressions[player] += value;
+        internal void SetProgression(int player, float value) => progressions[player] = value;
     }
 }

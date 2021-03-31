@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Urarulla
 {
-    public class XhttpRequester : MonoBehaviour
+    public class TutkintoXhttpRequester : MonoBehaviour
     {
         public TextAsset jsonTutkintoFile;
         public List<TutkintoNimike> tutkintoLista = new List<TutkintoNimike>();
@@ -77,7 +77,7 @@ namespace Urarulla
                         Debug.LogError(www.error);
                         yield break;
                     }
-                    
+
                     var data = www.downloadHandler.text;
                     var xml = new XmlDocument();
                     xml.LoadXml(data);
@@ -118,10 +118,10 @@ namespace Urarulla
                     target = _tutkinto;
                     break;
                 }
-            
+
             if (target == null) yield break;
             var tutkinto = (Tutkinto)target;
-            
+
             Debug.Log(ala.name + " | " + tutkinto.nimi);
 
             SetTutkintoData(tutkinto, mikkeliAdverts, helsinkiAdverts);
@@ -133,7 +133,7 @@ namespace Urarulla
             var advertData = node.SelectSingleNode("description").InnerText;
             var pieces = advertData.Split(new string[] { "<br>" }, System.StringSplitOptions.None);
             var description = pieces[1];
-            
+
             var _date = node.SelectSingleNode("pubDate").InnerText;
             var date = DateTime.Parse(string.Format("{0:d}", _date));
 
@@ -145,28 +145,20 @@ namespace Urarulla
 
         private void SetTutkintoData(Tutkinto tutkinto, List<Ad> mikkeliAds, List<Ad> helsinkiAds)
         {
-            var mikkeliWage = tutkinto.työtilanne.mikkeli.keskipalkka;
-            var mikkeliEmployment = GetJobEmploymentStatus(mikkeliAds);
-
-            var helsinkiWage = tutkinto.työtilanne.helsinki.keskipalkka;
-            var helsinkiEmployment = GetJobEmploymentStatus(helsinkiAds);
-
-            var middleWage = GetAverage(mikkeliWage, helsinkiWage);
-
-            var nimike = new TutkintoNimike(
-                tutkinto.nimi,
-                tutkinto.kuvaus,
-                middleWage,
-                mikkeliWage,
-                mikkeliEmployment,
-                mikkeliAds,
-                helsinkiWage,
-                helsinkiEmployment,
-                helsinkiAds
+            var degree = new TutkintoNimike(
+                name: tutkinto.nimi,
+                description: tutkinto.kuvaus,
+                vaatimukset: tutkinto.vaatimukset,
+                middleWage: GetAverage(tutkinto.työtilanne.mikkeli.keskipalkka, tutkinto.työtilanne.helsinki.keskipalkka),
+                mikkeliAds: mikkeliAds,
+                mikkeliWage: tutkinto.työtilanne.mikkeli.keskipalkka,
+                mikkeliEmployment: GetJobEmploymentStatus(mikkeliAds),
+                helsinkiAds: helsinkiAds,
+                helsinkiWage: tutkinto.työtilanne.helsinki.keskipalkka,
+                helsinkiEmployment: GetJobEmploymentStatus(helsinkiAds)
             );
-            
-            tutkintoLista.Add(nimike);
-            uiHelper.SetData(nimike);
+            tutkintoLista.Add(degree);
+            uiHelper.SetData(degree);
         }
 
         private int GetAverage(params int[] nums)
@@ -202,7 +194,7 @@ namespace Urarulla
 
             popularityScore -= (int)Mathf.Max((float)GetAverage((from ilmoitus in ilmoitukset
                 select Convert.ToInt32((DateTime.UtcNow.Date - ilmoitus.date).TotalDays)).ToArray()) / 4);
-            
+
             int score = Mathf.Clamp(popularityScore, 0, _popularityStatuses.Length - 1);
             return $"{score + 1}/5: {_popularityStatuses[score]}";
         }

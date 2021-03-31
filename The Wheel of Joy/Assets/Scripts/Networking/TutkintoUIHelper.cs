@@ -10,28 +10,33 @@ namespace Urarulla
         private TMP_Text tutkintoTxt;
         private TMP_Text averageWageTxt;
         private TMP_Text tutkintoDescTxt;
+        private TMP_Text vaatimusTxt;
         private TMP_Text mikkeliWageTxt;
         private TMP_Text mikkeliStatusTxt;
         private TMP_Text helsinkiWageTxt;
         private TMP_Text helsinkiStatusTxt;
         private UIJobScrollView[] scrollViews;
 
-        public XhttpRequester requester;
+        public TutkintoXhttpRequester requester;
 
         private void Start()
         {
-            dropdown = transform.Find("tutkinto-dropdown").GetComponent<TMP_Dropdown>();
             tutkintoTxt = transform.Find("tutkinto-name-txt").GetComponent<TMP_Text>();
-            averageWageTxt = transform.Find("average-wage-txt").GetComponent<TMP_Text>();
-            tutkintoDescTxt = transform.Find("tutkinto-description-txt").GetComponent<TMP_Text>();
-            mikkeliWageTxt = transform.Find("mikkeli-wage-txt").GetComponent<TMP_Text>();
-            mikkeliStatusTxt = transform.Find("mikkeli-status-txt").GetComponent<TMP_Text>();
-            helsinkiWageTxt = transform.Find("helsinki-wage-txt").GetComponent<TMP_Text>();
-            helsinkiStatusTxt = transform.Find("helsinki-status-txt").GetComponent<TMP_Text>();
+            dropdown = transform.Find("tutkinto-dropdown").GetComponent<TMP_Dropdown>();
+
+            var content = transform.Find("tutkinto-overview-scrollview/Viewport/Content");
+            averageWageTxt = content.Find("average-wage-txt").GetComponent<TMP_Text>();
+            tutkintoDescTxt = content.Find("tutkinto-description-txt").GetComponent<TMP_Text>();
+            vaatimusTxt = content.Find("vaatimus-txt").GetComponent<TMP_Text>();
+
+            mikkeliWageTxt = transform.Find("mikkeli/wage-txt").GetComponent<TMP_Text>();
+            mikkeliStatusTxt = transform.Find("mikkeli/status-txt").GetComponent<TMP_Text>();
+            helsinkiWageTxt = transform.Find("helsinki/wage-txt").GetComponent<TMP_Text>();
+            helsinkiStatusTxt = transform.Find("helsinki/status-txt").GetComponent<TMP_Text>();
             
             scrollViews = new UIJobScrollView[] {
-                transform.Find("mikkeli-links-scrollview").GetComponent<UIJobScrollView>(),
-                transform.Find("helsinki-links-scrollview").GetComponent<UIJobScrollView>(),
+                transform.Find("mikkeli/links-scrollview").GetComponent<UIJobScrollView>(),
+                transform.Find("helsinki/links-scrollview").GetComponent<UIJobScrollView>(),
             };
 
             ClearScrollViews();
@@ -62,6 +67,12 @@ namespace Urarulla
             
             helsinkiWageTxt.text = $"Keskipalkka: {tutkinto.helsinkiWage}€";
             helsinkiStatusTxt.text = tutkinto.helsinkiEmployment;
+
+            vaatimusTxt.text = "";
+            foreach (var vaatimus in tutkinto.vaatimukset)
+            {
+                vaatimusTxt.text += "\n➥ {vaatimus}";
+            }
 
             AddAds(tutkinto.mikkeliAds, 0);
             AddAds(tutkinto.helsinkiAds, 1);

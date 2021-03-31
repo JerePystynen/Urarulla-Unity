@@ -10,9 +10,11 @@ namespace Urarulla
 
         [TextArea]
         public string description;
-        
+
+        public string[] vaatimukset;
+
         public int middleWage;
-        
+
         public List<Ad> mikkeliAds = new List<Ad>();
         public int mikkeliWage;
         public string mikkeliEmployment;
@@ -21,19 +23,25 @@ namespace Urarulla
         public int helsinkiWage;
         public string helsinkiEmployment;
 
+        public string[] kuvat;
+        public string[] videot;
+        public string[] lisätietoa;
+
         public TutkintoNimike(
             string name,
             string description,
+            string[] vaatimukset,
             int middleWage,
+            List<Ad> mikkeliAds,
             int mikkeliWage,
             string mikkeliEmployment,
-            List<Ad> mikkeliAds,
+            List<Ad> helsinkiAds,
             int helsinkiWage,
-            string helsinkiEmployment,
-            List<Ad> helsinkiAds
-        ){
+            string helsinkiEmployment)
+        {
             this.name = name;
             this.description = description;
+            this.vaatimukset = vaatimukset;
             this.middleWage = middleWage;
             this.mikkeliAds = mikkeliAds;
             this.mikkeliWage = mikkeliWage;

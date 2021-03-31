@@ -49,7 +49,7 @@ namespace Urarulla
                 canvases = camera?.GetComponentsInChildren<Canvas>(true);
             }
 
-            name = $"---- {canvasName} {depth} " + (value ? "(Active) " : "(Inactive) ") + " -----";
+            name = $"{canvasName} {depth} " + (value ? "(Active) " : "(Inactive) ");
 
             if (cam != null)
                 cam.enabled = value;
