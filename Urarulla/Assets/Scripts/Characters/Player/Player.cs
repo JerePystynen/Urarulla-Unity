@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace Urarulla
 {
@@ -10,11 +9,28 @@ namespace Urarulla
         {
             this.name = name;
         }
-
         public string name;
-        public GameObject model;
-
+        public ModelShape shape = new ModelShape();
         public Personality personality = new Personality();
+    }
+
+    [Serializable]
+    public class ModelShape
+    {
+        public ModelPart[] parts;
+    }
+
+    [Serializable]
+    public class ModelPart
+    {
+        public ModelPart(string name, string name_fi)
+        {
+            this.name = name;
+            this.name_fi = name_fi;
+        }
+        public string name;
+        public string name_fi;
+        public float distortion;
     }
 
     [Serializable]

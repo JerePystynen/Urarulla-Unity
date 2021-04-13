@@ -5,7 +5,10 @@ namespace Urarulla
 {
     public class GameManager : Singleton<GameManager>
     {
+    // Data
         public GameDataSO gameData;
+        public static GameDataSO GameData => Instance?.gameData;
+        public static GameObject RandomCharacterModel => Instance.gameData.CharacterModels.Random();
 
         public GameSettingsSO gameSettings;
         internal static bool UseMultiplayer => Instance.gameSettings.UseMultiplayer;
@@ -27,6 +30,7 @@ namespace Urarulla
         public Tutkinnot tutkinnot;
         public Yleisominaisuudet yleisominaisuudet;
 
+    // References
         public LuckWheel luckWheel;
 
         [Space]
@@ -38,16 +42,22 @@ namespace Urarulla
 
         public List<Player> players = new List<Player>();
         public Player currentTurnPlayer;
+        public static int currentTurnPlayerIndex { get; private set; }
+
+        internal static ResponseManager responseManager => ResponseManager.Instance;
+        internal static TextToSpeech textToSpeech { get; private set; }
 
         private void Awake()
         {
             menusManager = GetComponent<MenusManager>();
 
             // cache all json files
-            alat = GetData<Ala>(gameData.alaFile);
-            kysymykset = GetData<Kysymykset>(gameData.kysymyksetFile);
-            tutkinnot = GetData<Tutkinnot>(gameData.tutkinnotFile);
-            yleisominaisuudet = GetData<Yleisominaisuudet>(gameData.yleisominaisuudetFile);
+            alat = GetData<Ala>(gameData.AlaFile);
+            kysymykset = GetData<Kysymykset>(gameData.KysymyksetFile);
+            tutkinnot = GetData<Tutkinnot>(gameData.TutkinnotFile);
+            yleisominaisuudet = GetData<Yleisominaisuudet>(gameData.YleisominaisuudetFile);
+
+            textToSpeech = GetComponentInChildren<TextToSpeech>(true);
         }
 
         private void Start()
@@ -79,6 +89,7 @@ namespace Urarulla
             int index = System.Array.IndexOf(players.ToArray(), currentTurnPlayer) + 1;
             if (index >= players.Count - 1) index = 0;
             currentTurnPlayer = players[index];
+            currentTurnPlayerIndex = System.Array.IndexOf(players.ToArray(), currentTurnPlayer);
 
             // if we do change the turn, check player's scores' sum:
             // if it's more than 20, that means the player has answered enough questions for the game to know about the player

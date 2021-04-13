@@ -23,20 +23,22 @@ namespace Urarulla
             speechBubble.gameObject.SetActive(false);
         }
 
-        internal void Display(string input, string type) => StartCoroutine(DisplayCoroutine(input, type));
+        internal void Speak(string input, SpeechType type = SpeechType.talk) => StartCoroutine(SpeakCoroutine(input, type));
 
-        private IEnumerator DisplayCoroutine(string input, string type)
+        private IEnumerator SpeakCoroutine(string input, SpeechType type)
         {
+            if (input.Length == 0) yield break;
+
             speechBubble.gameObject.SetActive(true);
             speechBubbleImg.sprite = type switch
             {
-                "talk" => talkBubble,
-                "yell" => yellBubble,
-                "smug" => smugBubble,
+                SpeechType.talk => talkBubble,
+                SpeechType.yell => yellBubble,
+                SpeechType.smug => smugBubble,
                 _ => null
             };
-            speechTxt.text = "";
 
+            speechTxt.text = "";
             var delay = new WaitForSeconds(.04f);
             foreach (var letter in input)
             {
@@ -45,9 +47,7 @@ namespace Urarulla
             }
 
             yield return new WaitForSeconds(1.6f);
-
             speechBubble.gameObject.SetActive(false);
-            
             GameManager.Instance.NextTurn();
         }
     }

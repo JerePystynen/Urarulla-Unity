@@ -35,10 +35,10 @@ namespace Urarulla
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A)) SetProgression(0, 0);
-            if (Input.GetKeyDown(KeyCode.S)) SetProgression(0, .2f);
-            if (Input.GetKeyDown(KeyCode.D)) SetProgression(0, .75f);
-            if (Input.GetKeyDown(KeyCode.F)) SetProgression(0, 1);
+            if (Input.GetKeyDown(KeyCode.A)) SetTurnPlayerProgression(0);
+            if (Input.GetKeyDown(KeyCode.S)) SetTurnPlayerProgression(.2f);
+            if (Input.GetKeyDown(KeyCode.D)) SetTurnPlayerProgression(.75f);
+            if (Input.GetKeyDown(KeyCode.F)) SetTurnPlayerProgression(1);
 
             for (var i = 0; i < progressions.Count; i++)
             {
@@ -62,14 +62,33 @@ namespace Urarulla
 
         private IEnumerator MoveFlagCoroutine()
         {
-            LeanTween.moveY(flag, 105, 2f).setEase(LeanTweenType.easeInBounce);
+            LeanTween.moveY(flag, 105, 2f).setEase(LeanTweenType.easeInBack);
             yield return new WaitForSeconds(2f);
             LeanTween.moveY(flag, 85, 2f).setEase(LeanTweenType.easeInBounce);
             yield return new WaitForSeconds(2f);
             StartCoroutine(MoveFlagCoroutine());
         }
 
-        internal void AddProgression(int player, float value) => progressions[player] += value;
-        internal void SetProgression(int player, float value) => progressions[player] = value;
+        internal void AddProgression(int player, float value)
+        {
+            if (progressions.Count == 0)
+            {
+                Debug.LogError("Error: There are no players in the game!");
+                return;
+            }
+            progressions[player] += value;
+        }
+
+        internal void SetProgression(int player, float value)
+        {
+            if (progressions.Count == 0)
+            {
+                Debug.LogError("Error: There are no players in the game!");
+                return;
+            }
+            progressions[player] = value;
+        }
+        
+        internal void SetTurnPlayerProgression(float value) => SetProgression(GameManager.currentTurnPlayerIndex, value);
     }
 }

@@ -89,7 +89,9 @@ namespace Urarulla
                 leader
             */
 
-            foreach (var category in GetRewardedCategories(answer.type, _currentQuestion.categories))
+            var categories = GetRewardedCategories(answer.type, _currentQuestion.categories);
+            var greed = 0;
+            foreach (var category in categories)
             {
                 Debug.Log(category);
                 switch (category)
@@ -111,11 +113,20 @@ namespace Urarulla
                         break;
                     case "greed":
                         GameManager.Instance.currentTurnPlayer.personality.greedScore++;
+                        greed++;
                         break;
                 }
             }
+
+            var speechType = SpeechType.talk;
+            if (greed > 0) speechType = SpeechType.smug;
+            else if (categories.Length > 3) speechType = SpeechType.yell;
+
             gameObject.SetActive(false);
-            ResponseManager.Instance.Display(answer.responses.Random(), "talk");
+            
+            var response = answer.responses.Random();
+            GameManager.responseManager.Speak(response, speechType);
+            GameManager.textToSpeech.TTS(response);
         }
 
         private string[] GetRewardedCategories(string type, string[] categories)
