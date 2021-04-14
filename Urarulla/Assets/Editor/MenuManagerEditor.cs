@@ -14,7 +14,7 @@ namespace Urarulla
 
             if (GUILayout.Button("Select"))
             {
-                MenusManager.Instance.SelectMenu(script);
+                MenusManager.Instance?.SelectMenu(script);
             }
         }
     }

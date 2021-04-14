@@ -11,7 +11,7 @@ namespace Urarulla
         }
         public string name;
         public ModelShape shape = new ModelShape();
-        public Personality personality = new Personality();
+        public Characteristics characteristics = new Characteristics();
     }
 
     [Serializable]
@@ -34,7 +34,7 @@ namespace Urarulla
     }
 
     [Serializable]
-    public class Personality
+    public class Characteristics
     {
         public int creativeScore;
         public int physicalScore;

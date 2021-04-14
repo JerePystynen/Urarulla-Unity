@@ -14,7 +14,7 @@ namespace Urarulla
             _readyBtn = transform.Find("ready-btn").gameObject;
 
             _addPlayerBtn.GetComponent<Button>().onClick.AddListener(delegate { AddNewPlayer(); });
-            _readyBtn.GetComponent<Button>().onClick.AddListener(delegate { Ready(); });
+            _readyBtn.GetComponent<Button>().onClick.AddListener(delegate { GameManager.StartGame(); });
             
             SetMultiplayerSetup(GameManager.UseMultiplayer);
         }
@@ -27,10 +27,5 @@ namespace Urarulla
         internal static void EditPlayer() => GameManager.Instance.SetMenuActive(2);
 
         private void AddNewPlayer() => GameManager.AddPlayer("PLAYER 2");
-        
-        private void Ready()
-        {
-            GameManager.Instance.SetMenuActive(3);
-        }
     }
 }

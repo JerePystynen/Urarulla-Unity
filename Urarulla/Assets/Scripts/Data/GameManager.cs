@@ -41,6 +41,7 @@ namespace Urarulla
         internal void SetMenuActive(int index) => menusManager.SetMenu(index);
 
         public List<Player> players = new List<Player>();
+        public static List<Player> Players => Instance?.players;
         public Player currentTurnPlayer;
         public static int currentTurnPlayerIndex { get; private set; }
 
@@ -76,6 +77,12 @@ namespace Urarulla
             return json;
         }
 
+        internal static void StartGame()
+        {
+            Instance.SetMenuActive(3);
+            UIMainScene.Instance.playerScoreManager.Ready();
+        }
+
         public static void AddPlayer(string name)
         {
             if (CheckIfSingleplayer) return;
@@ -94,7 +101,7 @@ namespace Urarulla
             // if we do change the turn, check player's scores' sum:
             // if it's more than 20, that means the player has answered enough questions for the game to know about the player
 
-            if (GetPlayerPersonalityScoreSum(currentTurnPlayer.personality) > 20)
+            if (GetPlayerPersonalityScoreSum(currentTurnPlayer.characteristics) > 20)
             {
                 // move onto the next question section...
 
@@ -102,7 +109,7 @@ namespace Urarulla
             }
         }
 
-        private int GetPlayerPersonalityScoreSum(Personality personality)
+        private int GetPlayerPersonalityScoreSum(Characteristics personality)
         {
             return personality.creativeScore + personality.physicalScore + personality.leaderScore + personality.teamScore + personality.greedScore;
         }

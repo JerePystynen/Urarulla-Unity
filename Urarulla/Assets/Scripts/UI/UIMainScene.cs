@@ -5,12 +5,13 @@ namespace Urarulla
 {
     public class UIMainScene : Singleton<UIMainScene>
     {
-        internal MediaPlayer mediaPlayer;
-
         private GameObject questionsObj;
-        internal QuestionManager questionManager;
-        private UIStarChoice starChoice;
-        
+
+        internal MediaPlayer mediaPlayer { get; private set; }
+        internal QuestionManager questionManager { get; private set; }
+        internal UIStarChoice starChoice { get; private set; }
+        internal PlayerScoreManager playerScoreManager { get; private set; }
+
         private Transform tutkintoInfo;
 
         private const int indexOfBlackSection = 0;
@@ -28,6 +29,7 @@ namespace Urarulla
             tutkintoInfo = transform.Find("tutkinto");
 
             starChoice = transform.GetComponentInChildren<UIStarChoice>(true);
+            playerScoreManager = transform.GetComponentInChildren<PlayerScoreManager>(true);
 
             transform.Find("exit-btn").GetComponent<Button>().onClick.AddListener(delegate { Exit(); });
 

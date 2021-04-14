@@ -6,9 +6,9 @@ namespace Urarulla
 {
     public class QuestionManager : MonoBehaviour
     {
-        private float likeCategoryReward = 0.8f;
-        private float passCategoryReward = 0.2f;
-        private float greedCategoryReward = 0.6f;
+        private const float likeCategoryReward = 0.8f;
+        private const float passCategoryReward = 0.2f;
+        private const float greedCategoryReward = 0.6f;
 
         private Kysymykset kysymykset;
         private Question _currentQuestion;
@@ -97,22 +97,22 @@ namespace Urarulla
                 switch (category)
                 {
                     case "creative":
-                        GameManager.Instance.currentTurnPlayer.personality.creativeScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.creativeScore++;
                         break;
                     case "physical":
-                        GameManager.Instance.currentTurnPlayer.personality.physicalScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.physicalScore++;
                         break;
                     case "handy":
-                        GameManager.Instance.currentTurnPlayer.personality.handyScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.handyScore++;
                         break;
                     case "team":
-                        GameManager.Instance.currentTurnPlayer.personality.teamScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.teamScore++;
                         break;
                     case "leader":
-                        GameManager.Instance.currentTurnPlayer.personality.leaderScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.leaderScore++;
                         break;
                     case "greed":
-                        GameManager.Instance.currentTurnPlayer.personality.greedScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.greedScore++;
                         greed++;
                         break;
                 }

@@ -1,6 +1,10 @@
 {
 	"tutkinnot":[
 		{
+			"categories":{
+                "physical":2,
+                "handy":1
+            },
 			"id":"Ohjelmistokehittäjä",
 			"nimi":"Tieto- ja viestintätekniikan ammattitutkinto",
 			"ala":"Tietojenkäsittely ja tietoliikenteen ala",

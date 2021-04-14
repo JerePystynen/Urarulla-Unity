@@ -18,19 +18,12 @@ namespace Urarulla
         private void Start()
         {
             flag = transform.Find("progression/flag-img").GetComponent<RectTransform>();
+        }
 
-            for (var i = 0; i < GameManager.Instance.players.Count; i++)
-            {
-                var player = GameManager.Instance.players[i];
-                var bar = Instantiate(progressBar, transform.Find("progression/bar")).transform;
-                bar.name = $"progress-bar ({i})";
-                var img = bar.GetComponent<Image>();
-                progressBars.Add(img);
-                img.fillAmount = 0;
-                progressions.Add(0);
-            }
-
+        internal void Ready()
+        {
             StartCoroutine(MoveFlagCoroutine());
+            CreateBars();
         }
 
         private void Update()
@@ -46,7 +39,9 @@ namespace Urarulla
                 if (!bar.enabled) continue;
                 if (bar.fillAmount >= .9985f)
                 {
-                    UIMainScene.Instance.SetTutkintoInfoActive(i, GetTutkinto());
+                    var tutkinto = GetTutkinto(GameManager.Players[i].characteristics);
+                    if (tutkinto != null)
+                        UIMainScene.Instance.SetTutkintoInfoActive(i, tutkinto);
                     bar.enabled = false;
                     continue;
                 }
@@ -54,9 +49,32 @@ namespace Urarulla
             }
         }
 
-        private TutkintoNimike GetTutkinto()
+        private void CreateBars()
+        {
+            if (GameManager.Players.Count == 0)
+            {
+                Debug.LogError("Error: There are no players!");
+                return;
+            }
+            var holder = transform.Find("progression/bar");
+            for (var i = 0; i < GameManager.Players.Count; i++)
+            {
+                var player = GameManager.Instance.players[i];
+                var bar = Instantiate(progressBar, holder).transform;
+                bar.name = $"progress-bar ({i})";
+                var img = bar.GetComponent<Image>();
+                progressBars.Add(img);
+                img.fillAmount = 0;
+                progressions.Add(0);
+            }
+        }
+
+        private TutkintoNimike GetTutkinto(Characteristics personality)
         {
             Debug.Log("todo: add a way to get which is the closest right player TutkintoNimike...");
+
+            transform.GetComponentInParent<Closest>().GetClosestTutkinto(personality);
+
             return null;
         }
 
@@ -69,15 +87,9 @@ namespace Urarulla
             StartCoroutine(MoveFlagCoroutine());
         }
 
-        internal void AddProgression(int player, float value)
-        {
-            if (progressions.Count == 0)
-            {
-                Debug.LogError("Error: There are no players in the game!");
-                return;
-            }
-            progressions[player] += value;
-        }
+        internal void AddProgression(int player, float value) => SetProgression(player, progressions[player] + value);
+
+        internal void SetTurnPlayerProgression(float value) => SetProgression(GameManager.currentTurnPlayerIndex, value);
 
         internal void SetProgression(int player, float value)
         {
@@ -88,7 +100,5 @@ namespace Urarulla
             }
             progressions[player] = value;
         }
-        
-        internal void SetTurnPlayerProgression(float value) => SetProgression(GameManager.currentTurnPlayerIndex, value);
     }
 }

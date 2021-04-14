@@ -1,11 +1,10 @@
 {
     "ominaisuuskysymykset":[
         {
-            "categories":[
-                "physical",
-                "handy",
-                "physical"
-            ],
+            "categories":{
+                "physical":2,
+                "handy":1
+            },
             "titles":[
                 "Tykkäätkö tehdä fyysistä työtä?",
                 "Tykkätkö fyysisestä työstä?"
