@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class UIMainScene : Singleton<UIMainScene>
     {
@@ -10,7 +10,7 @@ namespace Urarulla
         internal MediaPlayer mediaPlayer { get; private set; }
         internal QuestionManager questionManager { get; private set; }
         internal UIStarChoice starChoice { get; private set; }
-        internal PlayerScoreManager playerScoreManager { get; private set; }
+        internal ScoreUIManager scoreUIManager { get; private set; }
 
         private Transform tutkintoInfo;
 
@@ -29,7 +29,7 @@ namespace Urarulla
             tutkintoInfo = transform.Find("tutkinto");
 
             starChoice = transform.GetComponentInChildren<UIStarChoice>(true);
-            playerScoreManager = transform.GetComponentInChildren<PlayerScoreManager>(true);
+            scoreUIManager = transform.GetComponentInChildren<ScoreUIManager>(true);
 
             transform.Find("exit-btn").GetComponent<Button>().onClick.AddListener(delegate { Exit(); });
 
@@ -59,14 +59,16 @@ namespace Urarulla
             }
         }
 
-        internal void SetTutkintoInfoActive(int player, TutkintoNimike tutkinto)
+        internal void SetTutkintoInfoActive(int player, DegreeClean degree)
         {
             SetTutkintoInfo(true);
-            mediaPlayer.PlayTutkinto(tutkinto);
+            mediaPlayer.PlayTutkinto(degree);
 
-            // set that the player 'player' wins the game
+            Debug.Log("TODO: set that the player 'player' wins the game");
         }
+
         internal void SetTutkintoInfoDeactive() => SetTutkintoInfo(false);
+        
         private void SetTutkintoInfo(bool value)
         {
             tutkintoInfo.gameObject.SetActive(value);

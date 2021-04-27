@@ -1,14 +1,14 @@
 using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class CreatorAttributes : MonoBehaviour
     {
-        public Yleisominaisuudet yleisominaisuudet;
+        public CharacteristicInfos characteristicInfos;
 
         private void Start()
         {
-            yleisominaisuudet = GameManager.Instance.yleisominaisuudet;
+            characteristicInfos = GameManager.Instance.characteristicInfos;
         }
     }
 }

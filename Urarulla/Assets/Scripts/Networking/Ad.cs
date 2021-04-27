@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
+    /// <summary>
+    /// This is the singular job advertisement that contains basic information about the job.
+    /// </summary>
     [System.Serializable]
     public class Ad
     {

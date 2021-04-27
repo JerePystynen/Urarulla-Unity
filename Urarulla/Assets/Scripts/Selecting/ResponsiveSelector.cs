@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class ResponsiveSelector : MonoBehaviour, ISelector
     {

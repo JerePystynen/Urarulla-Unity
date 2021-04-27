@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class UIEditMenu : MonoBehaviour
     {

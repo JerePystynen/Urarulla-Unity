@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class ImageLoader : MonoBehaviour
     {

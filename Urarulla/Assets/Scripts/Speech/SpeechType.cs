@@ -1,4 +1,4 @@
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public enum SpeechType
     {

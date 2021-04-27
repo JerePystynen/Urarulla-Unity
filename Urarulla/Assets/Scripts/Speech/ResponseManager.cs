@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class ResponseManager : Singleton<ResponseManager>
     {

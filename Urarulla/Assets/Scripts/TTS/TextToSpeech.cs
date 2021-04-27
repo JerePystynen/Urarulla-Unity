@@ -1,12 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
-    public class TextToSpeech : MonoBehaviour
+    public class TextToSpeech : Singleton<TextToSpeech>
     {
         private AudioSource source;
 
@@ -15,7 +16,8 @@ namespace Urarulla
             source = GetComponent<AudioSource>();
         }
 
-        internal void TTS(params string[] input) => StartCoroutine(TTSCoroutine(input));
+        internal static void TTS(params string[] input) => Instance.StartCoroutine(Instance.TTSCoroutine(input));
+
         private IEnumerator TTSCoroutine(string[] input)
         {
             if (input.Length == 0)
@@ -24,7 +26,7 @@ namespace Urarulla
                 yield break;
             }
 
-            System.Collections.Generic.IEnumerable<string> enumerable()
+            IEnumerable<string> GetWordsCleaned()
             {
                 foreach (var sentence in input)
                 {
@@ -35,7 +37,7 @@ namespace Urarulla
                     }
                 }
             }
-            var words = enumerable().ToArray();
+            var words = GetWordsCleaned().ToArray();
             if (words.Length == 0) yield break;
 
             var content = "";
@@ -47,6 +49,9 @@ namespace Urarulla
             }
 
             var url = $"http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=1024&client=tw-ob&q=+{content}&tl=fi";
+            if (GameManager.Instance.gameSettings.DebugTtsUrl)
+                Debug.Log(url);
+
             using (var www = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG))
             {
                 yield return www.SendWebRequest();

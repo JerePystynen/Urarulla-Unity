@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class UIMainMenu : MonoBehaviour
     {
@@ -15,8 +15,18 @@ namespace Urarulla
     
         private void StartButton()
         {
+            if (GameManager.Players.Count == 0)
+            {
+                GameManager.AddPlayer($"Player {GameManager.Instance.players.Count}");
+            }
+            else
+            {
+                // foreach ()
+                // {
+                // }
+            }
+
             GameManager.Instance.SetMenuActive(1);
-            GameManager.Instance.players.Add(new Player($"Player {GameManager.Instance.players.Count}"));
         }
     }
 }

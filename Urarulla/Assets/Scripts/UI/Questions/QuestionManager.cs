@@ -2,15 +2,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class QuestionManager : MonoBehaviour
     {
-        private const float likeCategoryReward = 0.8f;
-        private const float passCategoryReward = 0.2f;
-        private const float greedCategoryReward = 0.6f;
+        private const float __likeCategoryReward = 0.8f;
+        private const float __passCategoryReward = 0.2f;
+        private const float __greedCategoryReward = 0.6f;
 
-        private Kysymykset kysymykset;
+        private Questions _questions;
         private Question _currentQuestion;
 
         private TMP_Text _titleTxt;
@@ -23,27 +23,27 @@ namespace Urarulla
             _questionTxt = transform.Find("question-txt").GetComponent<TMP_Text>();
             _answers = transform.Find("answer-buttons").GetComponent<UIAnswerManager>();
 
-            kysymykset = GameManager.Instance.kysymykset;
+            _questions = GameManager.Questions;
         }
 
         internal void AskRandomOminaisuus()
         {
-            if (kysymykset.ominaisuuskysymykset == null)
+            if (_questions.characteristicsQuestions == null)
             {
                 Debug.LogError("Error: ominaisuuskysymys data is missing!");
                 return;
             }
-            SetQuestion(kysymykset.ominaisuuskysymykset.Random());
+            SetQuestion(_questions.characteristicsQuestions.Random());
         }
 
         internal void AskRandomKompa()
         {
-            if (kysymykset.kompakysymykset == null)
+            if (_questions.trickyQuestions == null)
             {
                 Debug.LogError("Error: ominaisuuskysymys data is missing!");
                 return;
             }
-            SetQuestion(kysymykset.kompakysymykset.Random());
+            SetQuestion(_questions.trickyQuestions.Random());
         }
 
         internal void SetQuestion(Question question)
@@ -89,7 +89,13 @@ namespace Urarulla
                 leader
             */
 
-            var categories = GetRewardedCategories(answer.type, _currentQuestion.categories);
+            // IF ANSWER IS POSITIVE
+
+
+            // IF ANSWER IS NEGATIVE
+
+
+            var categories = GetRewardedCategories(answer.type, _currentQuestion.positive_categories);
             var greed = 0;
             foreach (var category in categories)
             {
@@ -97,22 +103,23 @@ namespace Urarulla
                 switch (category)
                 {
                     case "creative":
-                        GameManager.Instance.currentTurnPlayer.characteristics.creativeScore++;
+                        // ScoreManager.
+                        GameManager.Instance.currentTurnPlayer.characteristics.creative++;
                         break;
                     case "physical":
-                        GameManager.Instance.currentTurnPlayer.characteristics.physicalScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.physical++;
                         break;
                     case "handy":
-                        GameManager.Instance.currentTurnPlayer.characteristics.handyScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.handy++;
                         break;
                     case "team":
-                        GameManager.Instance.currentTurnPlayer.characteristics.teamScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.team++;
                         break;
                     case "leader":
-                        GameManager.Instance.currentTurnPlayer.characteristics.leaderScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.leader++;
                         break;
                     case "greed":
-                        GameManager.Instance.currentTurnPlayer.characteristics.greedScore++;
+                        GameManager.Instance.currentTurnPlayer.characteristics.greed++;
                         greed++;
                         break;
                 }
@@ -126,7 +133,7 @@ namespace Urarulla
             
             var response = answer.responses.Random();
             GameManager.responseManager.Speak(response, speechType);
-            GameManager.textToSpeech.TTS(response);
+            TextToSpeech.TTS(response);
         }
 
         private string[] GetRewardedCategories(string type, string[] categories)
@@ -135,11 +142,11 @@ namespace Urarulla
             switch (type)
             {
                 case "love":return categories;
-                case "like":return GetPercentageOfArray(categories, likeCategoryReward).ToArray();
+                case "like":return GetPercentageOfArray(categories, __likeCategoryReward).ToArray();
                 default:
-                case "pass":return GetPercentageOfArray(categories, passCategoryReward).ToArray();
+                case "pass":return GetPercentageOfArray(categories, __passCategoryReward).ToArray();
                 case "greed":
-                    var list = GetPercentageOfArray(categories, greedCategoryReward);
+                    var list = GetPercentageOfArray(categories, __greedCategoryReward);
                     list.Add("greed");
                     return list.ToArray();
             }
@@ -147,6 +154,18 @@ namespace Urarulla
 
         private List<string> GetPercentageOfArray(string[] array, float percentage)
         {
+            if (array == null)
+            {
+                Debug.LogError("Error: array is null!");
+                return null;
+            }
+            
+            if (array.Length == 0)
+            {
+                Debug.LogError("Error: array is empty!");
+                return null;
+            }
+
             var list = new List<string>();
             for (int i = 0; i < Mathf.RoundToInt((float)array.Length * percentage); i++)
                 list.Add(array[i]);

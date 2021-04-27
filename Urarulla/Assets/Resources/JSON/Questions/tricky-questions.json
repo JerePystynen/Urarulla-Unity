@@ -1,0 +1,229 @@
+{
+    "trickyQuestions":[
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Haluaisitko työskennellä nopeasti kehittyvällä alalla?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Haluaisitko työskennellä nopeasti kehittyvällä mediatoimialalla?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Onko sinulla hyvät ongelmanratkaisutaidot?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Oletko luonteeltasi itseohjautuva?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Oletko valmis kehittämään taitojasi jatkuvasti?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Haluaisitko työskennellä pelikehityksen parissa?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Oletko kiinnostunut ruuanlaitosta?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Modaatko pelejä?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Tuunaatko mopoasi, jos sinulla on sellainen tietenkin?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        }
+    ]
+}

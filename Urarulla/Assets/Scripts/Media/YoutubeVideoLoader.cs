@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using YoutubePlayer;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class YoutubeVideoLoader : MonoBehaviour
     {

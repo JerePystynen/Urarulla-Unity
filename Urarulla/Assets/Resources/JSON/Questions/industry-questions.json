@@ -1,0 +1,426 @@
+{
+    "industryQuestions":[
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Pidätkö työskentelystä luonnossa? TAI Oletko kiinnostunut luonnosta?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Pidätkö ajatuksesta työskennellä kolmivuorotyössä? TAI Työskenteletkö mieluummin vaihtelevissa työvuoroissa?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Pidätkö työstä, jossa kohtaat paljon muita ihmisiä vai teetkö mieluummin työtä, jossa käsitellään tietoja?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+                "logistics":1
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Pidätkö asioiden ja tavaroiden järjestelystä?",
+                "Pidätkö asioiden ja tavaroiden pitämisestä järjestyksessä?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+                
+            },
+            "titles":[
+                "Oletko kiinnostunut kirjallisuudesta tai luetko paljon?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Oletko taitava viestijä sosiaalisessa mediassa?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Pidätkö esineiden korjaamisesta?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Piditkö lapsena legojen tai palapelien rakentamisesta?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Harrastatko järjestötoimintaa?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Pidätkö esiintymisestä?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "categories":[
+            ],
+            "titles":[
+                "Oletko kiinnostunut eri maiden kielistä?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Jos olet ryhmässä, ohjaatko mieluummin toisia vai haluatko itse ohjeita?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Toimitko luontevasti lasten kanssa?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Keskusteletko mielelläsi vanhusten kanssa?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Harrastatko järjestötoimintaa?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Oletko voimakas? Tai pidätkö fyysisestä suorituksesta?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        },
+        {
+            "positive-categories":{
+
+            },
+            "negative-categories":{
+
+            },
+            "titles":[
+                "Oletko liikunnallinen?"
+            ],
+            "answers":[
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                },
+                {
+                    "text":"",
+                    "type":"",
+                    "responses":[
+                    ]
+                }
+            ]
+        }
+    ]
+}

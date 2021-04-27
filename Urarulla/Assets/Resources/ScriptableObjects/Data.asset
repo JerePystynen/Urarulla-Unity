@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9721bc70191a2a4c98f2e50042bbd0b, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: Assembly-CSharp:Urarulla:GameData
+  CharacteristicsFile: {fileID: 4900000, guid: 9e12ea005730d9f46bb3947ee5f12bbc, type: 3}
+  DegreeFile: {fileID: 4900000, guid: 6d95ff16c203b5e448801ec86bf8d053, type: 3}
+  IndustryQuestionsFile: {fileID: 4900000, guid: f53ae170adf1e584595219400ea90231, type: 3}
+  TrickyQuestionsFile: {fileID: 4900000, guid: 5dbab4ba3520e49479e8eeb91c31b6a1, type: 3}
+  CharacteristicsQuestionsFile: {fileID: 4900000, guid: 283f1f9c8987f99498806ffa0881e977, type: 3}
+  CharacterModels:
+  - {fileID: 2606382189323589321, guid: 6b2782b419b7b4f4ba175ac3fe8d3854, type: 3}
+  - {fileID: 3759674778781202599, guid: 39a7a33871d83c34c802de28237997f9, type: 3}
+  - {fileID: 4337866373328004772, guid: f4e26f3795036a74088a170f9e539d7e, type: 3}
+  CategorySlider: {fileID: 6864391821477732475, guid: 3a353b78461ec3246b939cf4879e07d1, type: 3}
+  PlayerSetupStand: {fileID: 7677856814808745797, guid: fae7f5293a8a4a1408346f903a2b7a25, type: 3}
+  PlayerNormalStand: {fileID: 7677856814808745797, guid: fae7f5293a8a4a1408346f903a2b7a25, type: 3}
+  PlayerProgressionBar: {fileID: 6415026778440965010, guid: 3ba3607b86c711a45a2f4ba014aaa898, type: 3}
+  LuckWheelSpinningSound: {fileID: 8300000, guid: 254b88ed7cecdd94da23c775ec6845f2, type: 3}

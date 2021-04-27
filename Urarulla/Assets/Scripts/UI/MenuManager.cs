@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class MenuManager : MonoBehaviour, IUI
     {

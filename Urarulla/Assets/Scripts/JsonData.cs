@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class JsonData : MonoBehaviour
     {

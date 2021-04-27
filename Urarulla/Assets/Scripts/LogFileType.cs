@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class LogFileType : MonoBehaviour
     {

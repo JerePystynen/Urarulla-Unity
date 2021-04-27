@@ -1,14 +1,19 @@
 using UnityEngine;
 using QuickOutline;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class Hoverable : MonoBehaviour
     {
-        internal Camera _camera;
+        internal new Camera camera;
         public Gradient gradient;
         internal Outline outline;
         private float strobeDuration = 2.75f;
+
+        private void Start()
+        {
+            camera = GetComponent<Camera>();
+        }
 
         internal bool CheckMouseHover()
         {
@@ -27,10 +32,12 @@ namespace Urarulla
 
         private bool IsHover()
         {
-            if (!_camera.enabled)
+            if (camera == null)
+                return false;
+            if (!camera.enabled)
                 return false;
             RaycastHit hit;
-            if (!Physics.Raycast(_camera.transform.position, _camera.ScreenPointToRay(Input.mousePosition).direction, out hit))
+            if (!Physics.Raycast(camera.transform.position, camera.ScreenPointToRay(Input.mousePosition).direction, out hit))
                 return false;
             if (hit.transform.parent == null)
                 return false;

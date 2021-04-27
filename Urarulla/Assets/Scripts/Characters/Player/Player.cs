@@ -1,6 +1,7 @@
 using System;
+using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     [Serializable]
     public class Player
@@ -9,38 +10,17 @@ namespace Urarulla
         {
             this.name = name;
         }
+
+        [Header("Info")]
         public string name;
         public ModelShape shape = new ModelShape();
         public Characteristics characteristics = new Characteristics();
-    }
+        
+        [Header("Stands")]
+        public Transform setupStand;
+        public Transform normalStand;
 
-    [Serializable]
-    public class ModelShape
-    {
-        public ModelPart[] parts;
-    }
-
-    [Serializable]
-    public class ModelPart
-    {
-        public ModelPart(string name, string name_fi)
-        {
-            this.name = name;
-            this.name_fi = name_fi;
-        }
-        public string name;
-        public string name_fi;
-        public float distortion;
-    }
-
-    [Serializable]
-    public class Characteristics
-    {
-        public int creativeScore;
-        public int physicalScore;
-        public int handyScore;
-        public int teamScore;
-        public int leaderScore;
-        public int greedScore;
+        [Header("Gameplay")]
+        [Range(0f, 1f)] public float scoreProgress;
     }
 }

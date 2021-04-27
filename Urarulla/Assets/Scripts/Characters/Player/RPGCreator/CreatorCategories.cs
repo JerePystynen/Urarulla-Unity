@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class CreatorCategories : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace Urarulla
 
             foreach (var category in ModelParts.modelParts)
             {
-                var obj = Instantiate(GameManager.GameData.CategorySlider, transform).transform;
+                var obj = Instantiate(GameManager.Data.CategorySlider, transform).transform;
                 obj.name = $"slider-{category.name}";
                 obj.GetComponentInChildren<TMPro.TMP_Text>().text = category.name_fi;
                 var part = obj.GetComponent<BodyPart>();

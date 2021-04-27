@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     [CustomEditor(typeof(MenuManager))]
     public class MenuManagerEditor : Editor

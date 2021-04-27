@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     // Based on http://wiki.unity3d.com/index.php/Singleton
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class Selectable : MonoBehaviour, ISelectionResponse
     {

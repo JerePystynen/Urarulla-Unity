@@ -1,7 +1,7 @@
 using QuickOutline;
 using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class CreatorPlayer : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace Urarulla
                 _hoverable.outline = transform.Find("character/outline").GetComponentInChildren<MeshRenderer>().transform.GetComponentInChildren<Outline>();
             _camera = transform.root.GetComponentInChildren<Camera>();
             if (_hoverable != null)
-                _hoverable._camera = _camera;
+                _hoverable.camera = _camera;
         }
 
         private void Update()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     public class MainMenuStartBtn : MonoBehaviour
     {

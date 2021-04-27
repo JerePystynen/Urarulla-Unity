@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     [System.Serializable]
     public class Part

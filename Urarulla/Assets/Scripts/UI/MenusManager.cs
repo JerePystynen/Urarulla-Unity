@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Urarulla
+namespace DiMe.Urarulla
 {
     [ExecuteAlways]
     public class MenusManager : Singleton<MenusManager>
