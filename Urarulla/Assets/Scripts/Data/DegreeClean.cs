@@ -7,25 +7,22 @@ namespace DiMe.Urarulla
     public class DegreeClean
     {
         public string name;
+        [TextArea] public string description;
+        public string[] requirements;
 
-        [TextArea]
-        public string description;
-
-        public string[] vaatimukset;
-
-        public int middleWage;
+        public int middle_wage;
 
         public List<Ad> mikkeliAds = new List<Ad>();
-        public int mikkeliWage;
-        public string mikkeliEmployment;
+        public int mikkeli_wage;
+        public string mikkeli_employment_status;
 
         public List<Ad> helsinkiAds = new List<Ad>();
-        public int helsinkiWage;
-        public string helsinkiEmployment;
+        public int helsinki_wage;
+        public string helsinki_employment_status;
 
-        public string[] kuvat;
-        public string[] videot;
-        public string[] lisätietoa;
+        public string[] links;
+        public string[] videos;
+        public string[] images;
 
         public DegreeClean(
             string name,
@@ -41,14 +38,14 @@ namespace DiMe.Urarulla
         {
             this.name = name;
             this.description = description;
-            this.vaatimukset = vaatimukset;
-            this.middleWage = middleWage;
+            this.requirements = vaatimukset;
+            this.middle_wage = middleWage;
             this.mikkeliAds = mikkeliAds;
-            this.mikkeliWage = mikkeliWage;
-            this.mikkeliEmployment = mikkeliEmployment;
+            this.mikkeli_wage = mikkeliWage;
+            this.mikkeli_employment_status = mikkeliEmployment;
             this.helsinkiAds = helsinkiAds;
-            this.helsinkiWage = helsinkiWage;
-            this.helsinkiEmployment = helsinkiEmployment;
+            this.helsinki_wage = helsinkiWage;
+            this.helsinki_employment_status = helsinkiEmployment;
         }
     }
 }

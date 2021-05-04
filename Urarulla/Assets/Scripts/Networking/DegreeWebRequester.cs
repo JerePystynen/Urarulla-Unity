@@ -10,10 +10,18 @@ namespace DiMe.Urarulla
 {
     public class DegreeWebRequester : MonoBehaviour
     {
-        public List<DegreeClean> degreeList = new List<DegreeClean>();
+        public List<Degree> degreeList = new List<Degree>();
         private int _ilmoitusCount = 6;
 
         private DegreeUIHelper helper;
+
+        private string[] _popularityStatuses = {
+            "Töitä on hankala löytää tällä alalla.",
+            "Töitä on siellä täällä saatavilla tällä alalla.",
+            "Varmasti pääset töihin tällä alalla.",
+            "Töitä löytyy hyvin tällä alalla.",
+            "Sinut tullaan hakemaan tällä alalla.",
+        };
 
         private void Start()
         {
@@ -90,7 +98,7 @@ namespace DiMe.Urarulla
 
             Debug.Log(degree.name + " | " + dt.name);
 
-            SetTutkintoData(degree, mikkeliAdverts, helsinkiAdverts);
+            SetDegreeData(degree, mikkeliAdverts, helsinkiAdverts);
         }
 
         private Ad GetAd(XmlNode node)
@@ -109,25 +117,16 @@ namespace DiMe.Urarulla
             return new Ad(title, description, date, link);
         }
 
-        private void SetTutkintoData(Degree degree, List<Ad> mikkeliAds, List<Ad> helsinkiAds)
+        private void SetDegreeData(Degree degree, List<Ad> mikkeliAds, List<Ad> helsinkiAds)
         {
-            var d = new DegreeClean(
-                degree.name,
-                degree.description,
-                degree.requirements,
-                // Wage
-                GetAverage(degree.employment.mikkeli_wage, degree.employment.helsinki_wage),
-                // Mikkeli
-                mikkeliAds,
-                degree.employment.mikkeli_wage,
-                GetJobEmploymentStatus(mikkeliAds),
-                // Helsinki
-                helsinkiAds,
-                degree.employment.helsinki_wage,
-                GetJobEmploymentStatus(helsinkiAds)
-            );
-            degreeList.Add(d);
-            helper.SetData(d);
+            degree.employment.mikkeli_ads = mikkeliAds;
+            degree.employment.helsinki_ads = helsinkiAds;
+            
+            degree.employment.mikkeli_employment_status = GetEmploymentStatus(mikkeliAds);
+            degree.employment.helsinki_employment_status = GetEmploymentStatus(helsinkiAds);
+
+            degreeList.Add(degree);
+            helper.SetData(degree);
         }
 
         private int GetAverage(params int[] nums)
@@ -140,15 +139,7 @@ namespace DiMe.Urarulla
             return Mathf.RoundToInt((float)total / nums.Length);
         }
 
-        private string[] _popularityStatuses = {
-            "Töitä on hankala löytää tällä alalla.",
-            "Töitä on siellä täällä saatavilla tällä alalla.",
-            "Varmasti pääset töihin tällä alalla.",
-            "Töitä löytyy hyvin tällä alalla.",
-            "Sinut tullaan hakemaan tällä alalla.",
-        };
-
-        private string GetJobEmploymentStatus(List<Ad> ilmoitukset)
+        private string GetEmploymentStatus(List<Ad> ilmoitukset)
         {
             // katso ilmoituksista milloin ilmoitus on luotu ja jos ilmoituksia on luotu ja
             // jos ne ovat vanhentuneita (>3 päivää) => se tarkoittaa että "työvoimapulaa".

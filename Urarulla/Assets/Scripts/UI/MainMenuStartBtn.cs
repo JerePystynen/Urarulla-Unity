@@ -1,58 +1,46 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace DiMe.Urarulla
 {
     public class MainMenuStartBtn : MonoBehaviour
     {
-        private RectTransform _rect;
-        private float _duration = 1;
+        private Image _background;
         private Camera _camera;
-        private Coroutine moveButtonCoroutine;
+        private Coroutine startCoroutine;
+
+        private UIMainMenu mainMenu;
 
         private void Start()
         {
-            _rect = transform.Find("background").GetComponent<RectTransform>();
+            _background = transform.Find("background").GetComponent<Image>();
             _camera = transform.root.GetComponentInChildren<Camera>();
+
+            mainMenu = GetComponentInParent<UIMainMenu>();
+
+            GetComponent<Button>().onClick.AddListener(delegate { OnStartButtonPressed(); });
+            ResetButton();
         }
 
-        private void Update()
+        internal void ResetButton()
         {
-            CheckPointerOverUIElement();
+            _background.sprite = GameManager.Data.StartButtonUpSprite;
         }
 
-        private void CheckPointerOverUIElement()
+        private void OnStartButtonPressed()
         {
-            if (IsPointerOverUIElement(GetEventSystemRaycastResults()) && moveButtonCoroutine == null)
-                moveButtonCoroutine = StartCoroutine(MoveButtonCoroutine());
+            if (startCoroutine == null)
+            {
+                startCoroutine = StartCoroutine(StartCoroutine());
+            }
         }
 
-        private bool IsPointerOverUIElement(List<RaycastResult> results)
+        private IEnumerator StartCoroutine()
         {
-            for (int i = 0; i < results.Count; i++)
-                if (results[i].gameObject.transform == _rect.transform || results[i].gameObject.transform == transform)
-                    return true;
-            return false;
-        }
-
-        private List<RaycastResult> GetEventSystemRaycastResults()
-        {
-            var data = new PointerEventData(EventSystem.current);
-            data.position = Input.mousePosition;
-            var results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(data, results);
-            return results;
-        }
-
-        private IEnumerator MoveButtonCoroutine()
-        {
-            LeanTween.moveY(_rect, 0, _duration).setEase(LeanTweenType.easeOutSine);
-            yield return new WaitForSeconds(_duration);
-            LeanTween.moveY(_rect, -220, _duration).setEase(LeanTweenType.easeInSine);
-            yield return new WaitForSeconds(_duration);
-            moveButtonCoroutine = null;
+            _background.sprite = GameManager.Data.StartButtonDownSprite;
+            yield return new WaitForSeconds(.225f);
+            mainMenu.StartButton(this);
         }
     }
 }

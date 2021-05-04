@@ -6,8 +6,8 @@ namespace DiMe.Urarulla
     public class GameManager : Singleton<GameManager>
     {
         public GameDataSO gameData;
-        public static GameDataSO Data => Instance?.gameData;
-        public static GameObject RandomCharacterModel => Instance.gameData.CharacterModels.Random();
+        public static GameDataSO Data => Instance.gameData;
+        public static GameObject RandomCharacterModel => Instance.gameData.BackGroundCharacterModels.Random();
 
         public GameSettingsSO gameSettings;
         internal static bool IsMultiplayer => Instance.gameSettings.IsMultiplayer;
@@ -35,11 +35,9 @@ namespace DiMe.Urarulla
         public static onGameStart OnGameStart;
 
         // References
-        public LuckWheel luckWheel;
-
-        [Space]
-        Transform wheel;
-        public bool isGameActive;
+        internal LuckWheel luckWheel;
+        private Transform wheel;
+        internal static bool IsMainSceneActive => Instance.menusManager.CurrentActiveMenu == 3;
 
         internal MenusManager menusManager;
         internal void SetMenuActive(int index) => menusManager.SetMenu(index);
@@ -50,7 +48,7 @@ namespace DiMe.Urarulla
         public Player currentTurnPlayer;
         public static int CurrentTurnPlayerIndex { get; private set; }
 
-        internal static ResponseManager responseManager => ResponseManager.Instance;
+        internal static ResponseManager responseManager { get; private set; }
         internal static TextToSpeech textToSpeech { get; private set; }
 
         private void Awake()
@@ -69,12 +67,14 @@ namespace DiMe.Urarulla
             questions = new Questions(
                 JsonUtilityExt.GetData<Questions.CharacteristicsQuestions>(gameData.CharacteristicsQuestionsFile).characteristicsQuestions,
                 JsonUtilityExt.GetData<Questions.IndustryQuestions>(gameData.IndustryQuestionsFile).industryQuestions,
-                JsonUtilityExt.GetData<Questions.TrickyQuestions>(gameData.TrickyQuestionsFile).trickyQuestions);
+                JsonUtilityExt.GetData<Questions.TrickyQuestions>(gameData.TrickyQuestionsFile).trickyQuestions
+            );
         }
 
         private void Start()
         {
-            wheel = GameObject.Find("Wheel of Luck").transform.GetChild(0);
+            luckWheel = FindObjectOfType<LuckWheel>();
+            wheel = luckWheel.transform.GetChild(0);
         }
 
         internal static void StartGame()
@@ -130,10 +130,9 @@ namespace DiMe.Urarulla
             // if we do change the turn, check player's scores' sum:
             // if it's more than 20, that means the player has answered enough questions for the game to know about the player
 
-            if (GetPlayerPersonalityScoreSum(currentTurnPlayer.characteristics) > 20)
+            if (GetCharacteristicsScoreSum(currentTurnPlayer.characteristics) > 20)
             {
-                // move onto the next question section...
-
+                Debug.Log("TODO: move onto the next question section...");
 
             }
         }
@@ -143,9 +142,9 @@ namespace DiMe.Urarulla
             Instance.players[CurrentTurnPlayerIndex].scoreProgress += amount;
         }
 
-        private int GetPlayerPersonalityScoreSum(Characteristics personality)
+        private int GetCharacteristicsScoreSum(Characteristics characteristics)
         {
-            return personality.creative + personality.physical + personality.leader + personality.team + personality.greed;
+            return characteristics.creative + characteristics.physical + characteristics.leader + characteristics.team + characteristics.greed;
         }
     }
 }

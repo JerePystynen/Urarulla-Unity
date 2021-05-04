@@ -12,21 +12,28 @@ namespace DiMe.Urarulla
         internal UIStarChoice starChoice { get; private set; }
         internal ScoreUIManager scoreUIManager { get; private set; }
 
-        private Transform tutkintoInfo;
-
         private const int indexOfBlackSection = 0;
         private const int indexOfOrangeSection = 4;
 
+        private Transform _degreeInfo;
+
+        private GameObject _playersBar;
+        private GameObject _starChoiseMenu;
+        private GameObject _questionMenu;
+        private GameObject _degreeMenu;
+
+        internal bool IsAnyMenuActive => _playersBar.activeSelf || _starChoiseMenu.activeSelf || _questionMenu.activeSelf || _degreeMenu.activeSelf;
+
         private void Start()
         {
-            mediaPlayer = transform.Find("tutkinto/tutkinto-overview-scrollview/Viewport/Content").GetComponent<MediaPlayer>();
+            mediaPlayer = transform.Find("degree/degree-overview-scrollview/Viewport/Content").GetComponent<MediaPlayer>();
 
             questionsObj = transform.Find("questions").gameObject;
             questionManager = questionsObj.GetComponent<QuestionManager>();
             questionManager.Ready();
             questionsObj.SetActive(false);
             
-            tutkintoInfo = transform.Find("tutkinto");
+            _degreeInfo = transform.Find("degree");
 
             starChoice = transform.GetComponentInChildren<UIStarChoice>(true);
             scoreUIManager = transform.GetComponentInChildren<ScoreUIManager>(true);
@@ -40,7 +47,7 @@ namespace DiMe.Urarulla
         {
             transform.Find("star-choice").gameObject.SetActive(false);
             transform.Find("questions").gameObject.SetActive(false);
-            tutkintoInfo.gameObject.SetActive(false);
+            _degreeInfo.gameObject.SetActive(false);
         }
 
         internal void AskQuestion(int index)
@@ -59,20 +66,17 @@ namespace DiMe.Urarulla
             }
         }
 
-        internal void SetTutkintoInfoActive(int player, DegreeClean degree)
+        internal void SetDegreeInfoActive(int player, Degree degree)
         {
-            SetTutkintoInfo(true);
-            mediaPlayer.PlayTutkinto(degree);
+            SetDegreeInfo(true);
+            mediaPlayer.PlayDegree(degree);
 
-            Debug.Log("TODO: set that the player 'player' wins the game");
+            Debug.Log("TODO: set the title to the degree recommended and then set that the player 'player' wins the game...");
         }
 
-        internal void SetTutkintoInfoDeactive() => SetTutkintoInfo(false);
+        internal void SetDegreeInfoDeactive() => SetDegreeInfo(false);
         
-        private void SetTutkintoInfo(bool value)
-        {
-            tutkintoInfo.gameObject.SetActive(value);
-        }
+        private void SetDegreeInfo(bool value) => _degreeInfo.gameObject.SetActive(value);
 
         private void Exit()
         {

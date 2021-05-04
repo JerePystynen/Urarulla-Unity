@@ -33,15 +33,23 @@ namespace DiMe.Urarulla
             if (Input.GetKeyDown(KeyCode.D)) SetTurnPlayerProgression(.75f);
             if (Input.GetKeyDown(KeyCode.F)) SetTurnPlayerProgression(1);
 
+            if (goalReached)
+            {
+                return;
+            }
             for (var i = 0; i < progressions.Count; i++)
             {
                 var bar = progressBars[i];
                 if (!bar.enabled) continue;
                 if (bar.fillAmount >= .9985f)
                 {
-                    var degree = GetTutkinto(GameManager.Players[i].characteristics);
-                    if (degree != null)
-                        UIMainScene.Instance.SetTutkintoInfoActive(i, degree);
+                    var degreeN = (Degree?)GetDegreeClean(GameManager.Players[i].characteristics);
+                    if (degreeN != null)
+                    {
+                        var degree = (Degree)degreeN;
+                        UIMainScene.Instance.SetDegreeInfoActive(i, degree);
+                        goalReached = true;
+                    }
                     bar.enabled = false;
                     continue;
                 }
@@ -69,12 +77,10 @@ namespace DiMe.Urarulla
             }
         }
 
-        private DegreeClean GetTutkinto(Characteristics characteristics)
+        private Degree GetDegreeClean(Characteristics characteristics)
         {
             var t = characteristics.GetClosestDegree();
-            Debug.Log("closet degree is " + t.name);
-
-            return null;
+            return t;
         }
 
         private IEnumerator MoveFlagCoroutine()

@@ -15,7 +15,9 @@ namespace DiMe.Urarulla
         public TextAsset CharacteristicsQuestionsFile;
 
         [Header("Prefabs")]
-        public GameObject[] CharacterModels;
+        public GameObject[] BackGroundCharacterModels;
+        public GameObject[] PlayerCharacterModels;
+
         public GameObject CategorySlider;
 
         // Difference between setup and normal stands is being able to go to EditMenu from clicking the stand's character.
@@ -28,5 +30,9 @@ namespace DiMe.Urarulla
 
         [Header("Sound Effects")]
         public AudioClip LuckWheelSpinningSound;
+        
+        [Header("Sprites")]
+        public Sprite StartButtonUpSprite;
+        public Sprite StartButtonDownSprite;
     }
 }

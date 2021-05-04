@@ -16,7 +16,7 @@ namespace DiMe.Urarulla
             _addPlayerBtn.GetComponent<Button>().onClick.AddListener(delegate { AddNewPlayer("PLAYER 2"); });
             _readyBtn.GetComponent<Button>().onClick.AddListener(delegate { GameManager.StartGame(); });
             
-            foreach (var player in SetupMenu.GetPlayerPedestals())
+            foreach (var player in SetupMenu.GetPlayerStands())
             {
                 var removeBtn = player.Find("");
                 removeBtn.GetComponent<Button>().onClick.AddListener(delegate { RemoveAddedPlayer(player.name); });

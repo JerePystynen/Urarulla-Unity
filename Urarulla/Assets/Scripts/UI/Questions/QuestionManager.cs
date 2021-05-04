@@ -132,7 +132,7 @@ namespace DiMe.Urarulla
             gameObject.SetActive(false);
             
             var response = answer.responses.Random();
-            GameManager.responseManager.Speak(response, speechType);
+            ResponseManager.Speak(response, speechType);
             TextToSpeech.TTS(response);
         }
 

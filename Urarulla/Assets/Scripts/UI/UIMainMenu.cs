@@ -1,19 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace DiMe.Urarulla
 {
     public class UIMainMenu : MonoBehaviour
     {
-        private Transform _startBtn;
-
-        private void Start()
-        {
-            _startBtn = transform.Find("start-btn");
-            _startBtn.GetComponent<Button>().onClick.AddListener(delegate{ StartButton(); });
-        }
-    
-        private void StartButton()
+        internal void StartButton(MainMenuStartBtn btn)
         {
             if (GameManager.Players.Count == 0)
             {
@@ -27,6 +18,7 @@ namespace DiMe.Urarulla
             }
 
             GameManager.Instance.SetMenuActive(1);
+            btn.ResetButton();
         }
     }
 }

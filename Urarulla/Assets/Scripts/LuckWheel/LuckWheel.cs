@@ -22,7 +22,6 @@ namespace DiMe.Urarulla
         private int _targetIndex;
 
         private bool CanSpinWheelAtBackground => GameManager.Instance.menusManager.CurrentActiveMenu == 0;
-        private bool IsMainSceneActive => GameManager.Instance.menusManager.CurrentActiveMenu == 3;
 
         private Outline _outline;
         private Coroutine _spinWheelCoroutine;
@@ -48,7 +47,7 @@ namespace DiMe.Urarulla
         {
             if (CanSpinWheelAtBackground)
                 wheel.Rotate(new Vector3(0f, 0f, -8f), Space.Self);
-            else if (IsMainSceneActive && Input.GetKeyDown(KeyCode.Space))
+            else if (GameManager.IsMainSceneActive && Input.GetKeyDown(KeyCode.Space))
                 SpinWheel();
         }
 
@@ -81,9 +80,7 @@ namespace DiMe.Urarulla
     // SpinCoroutine
         internal void SpinWheel()
         {
-            Debug.Log("TODO: add logic for checking if a question is being answered...");
-            
-            if (_spinWheelCoroutine == null)
+            if (GameManager.IsMainSceneActive && _spinWheelCoroutine == null)
                 _spinWheelCoroutine = StartCoroutine(SpinWheelCoroutine());
         }
 
@@ -115,7 +112,7 @@ namespace DiMe.Urarulla
         public void SetDotProduct(float distance)
         {
             _dotPercentage = distance;
-            var isMouseOnWheelAndInGame = IsMouseOnWheel(distance) && IsMainSceneActive;
+            var isMouseOnWheelAndInGame = IsMouseOnWheel(distance) && GameManager.IsMainSceneActive;
             SetWheelOutline(isMouseOnWheelAndInGame);
             if (isMouseOnWheelAndInGame && Input.GetMouseButtonDown(0))
                 SpinWheel();

@@ -26,3 +26,5 @@ MonoBehaviour:
   PlayerNormalStand: {fileID: 7677856814808745797, guid: fae7f5293a8a4a1408346f903a2b7a25, type: 3}
   PlayerProgressionBar: {fileID: 6415026778440965010, guid: 3ba3607b86c711a45a2f4ba014aaa898, type: 3}
   LuckWheelSpinningSound: {fileID: 8300000, guid: 254b88ed7cecdd94da23c775ec6845f2, type: 3}
+  StartButtonUpSprite: {fileID: 21300000, guid: a56bfe3ebdda0c94e84ee415c6ef2f31, type: 3}
+  StartButtonDownSprite: {fileID: 21300000, guid: b5891ff47736b1d479513fe265664897, type: 3}

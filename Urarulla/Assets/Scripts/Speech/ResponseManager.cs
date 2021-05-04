@@ -23,7 +23,7 @@ namespace DiMe.Urarulla
             speechBubble.gameObject.SetActive(false);
         }
 
-        internal void Speak(string input, SpeechType type = SpeechType.talk) => StartCoroutine(SpeakCoroutine(input, type));
+        internal static void Speak(string input, SpeechType type = SpeechType.talk) => Instance.StartCoroutine(Instance.SpeakCoroutine(input, type));
 
         private IEnumerator SpeakCoroutine(string input, SpeechType type)
         {

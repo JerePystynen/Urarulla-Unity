@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   gameBuild: 0
+  UseTts: 1
   DebugTtsUrl: 0
