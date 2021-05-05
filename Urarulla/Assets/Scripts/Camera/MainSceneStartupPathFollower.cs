@@ -12,7 +12,7 @@ namespace DiMe.Urarulla
         private void Start()
         {
             cart = GetComponent<CinemachineDollyCart>();
-            GameManager.OnGameStart += OnGameStart;
+            GameManager.OnGameStarted += OnGameStart;
         }
 
         private void OnGameStart()

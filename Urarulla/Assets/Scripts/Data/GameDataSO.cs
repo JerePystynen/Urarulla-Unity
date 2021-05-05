@@ -6,7 +6,8 @@ namespace DiMe.Urarulla
     public class GameDataSO : ScriptableObject
     {
         [Header("Files")]
-        public TextAsset CharacteristicsFile;
+        public TextAsset CharacteristicsInfosFile;
+        public TextAsset CharacteristicsSkillsFile;
         public TextAsset DegreeFile;
 
         [Header("Questions")]

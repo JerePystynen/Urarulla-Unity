@@ -5,6 +5,7 @@ namespace DiMe.Urarulla
 {
     public class GameManager : Singleton<GameManager>
     {
+        // ScriptableObjects
         public GameDataSO gameData;
         public static GameDataSO Data => Instance.gameData;
         public static GameObject RandomCharacterModel => Instance.gameData.BackGroundCharacterModels.Random();
@@ -24,23 +25,39 @@ namespace DiMe.Urarulla
             }
         }
 
+        // Json
         public Questions questions;
         public static Questions Questions => Instance.questions;
 
         public Degrees degrees;
+        internal static Degrees Degrees => Instance.degrees;
+
         public CharacteristicInfos characteristicInfos;
+        internal static CharacteristicInfo[] CharacteristicInfos => Instance.characteristicInfos.characteristicInfos;
+        
+        public CharacteristicSkills characteristicSkills;
+        internal static CharacteristicSkill[] CharacteristicSkills => Instance.characteristicSkills.characteristicSkills;
 
         // Events
-        public delegate void onGameStart();
-        public static onGameStart OnGameStart;
+        /// <summary>
+        /// Activated when the MainScene is activated (index of 3).
+        /// </summary>
+        public static onGameStarted OnGameStarted;
+        public delegate void onGameStarted();
+
+        /// <summary>
+        /// Activated when all JSON files are done being serialized in the memory.
+        /// </summary>
+        public static onDataLoaded OnDataLoaded;
+        public delegate void onDataLoaded();
 
         // References
         internal LuckWheel luckWheel;
         private Transform wheel;
-        internal static bool IsMainSceneActive => Instance.menusManager.CurrentActiveMenu == 3;
 
         internal MenusManager menusManager;
         internal void SetMenuActive(int index) => menusManager.SetMenu(index);
+        internal static bool IsMainSceneActive => Instance.menusManager.CurrentActiveMenu == 3;
 
         internal const int MaxPlayerCount = 5;
         public List<Player> players = new List<Player>();
@@ -61,13 +78,17 @@ namespace DiMe.Urarulla
         private void CacheJson()
         {
             degrees = JsonUtilityExt.GetData<Degrees>(gameData.DegreeFile);
-            characteristicInfos = JsonUtilityExt.GetData<CharacteristicInfos>(gameData.CharacteristicsFile);
+            
+            characteristicInfos = JsonUtilityExt.GetData<CharacteristicInfos>(gameData.CharacteristicsInfosFile);
+            characteristicSkills = JsonUtilityExt.GetData<CharacteristicSkills>(gameData.CharacteristicsSkillsFile);
 
             questions = new Questions(
                 JsonUtilityExt.GetData<Questions.CharacteristicsQuestions>(gameData.CharacteristicsQuestionsFile).characteristicsQuestions,
                 JsonUtilityExt.GetData<Questions.IndustryQuestions>(gameData.IndustryQuestionsFile).industryQuestions,
                 JsonUtilityExt.GetData<Questions.TrickyQuestions>(gameData.TrickyQuestionsFile).trickyQuestions
             );
+
+            EditMenu.OnDataLoaded();
         }
 
         private void Start()
@@ -79,7 +100,7 @@ namespace DiMe.Urarulla
         internal static void StartGame()
         {
             Instance.SetMenuActive(3);
-            OnGameStart();
+            OnGameStarted();
         }
 
         internal static void AddPlayer(string name)

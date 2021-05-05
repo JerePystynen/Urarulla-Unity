@@ -12,7 +12,7 @@ namespace DiMe.Urarulla
             "Hyvät naiset ja herrat. Olemme saapuneet tänne. Kuka on valmis aloittamaan?",
         };
 
-        private void Start() => GameManager.OnGameStart += OnGameStart;
+        private void Start() => GameManager.OnGameStarted += OnGameStart;
 
         private void OnGameStart() => TextToSpeech.TTS(startLines.Random());
     }

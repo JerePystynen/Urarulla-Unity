@@ -17,7 +17,7 @@ namespace DiMe.Urarulla
         private void Start()
         {
             flag = transform.Find("progression/flag-img").GetComponent<RectTransform>();
-            GameManager.OnGameStart += OnGameStart;
+            GameManager.OnGameStarted += OnGameStart;
         }
 
         private void OnGameStart()

@@ -14,14 +14,9 @@ namespace DiMe.Urarulla
             "Ylimieli",
         };
 
-        private void Start()
+        internal void SetDropdown()
         {
             dropdown = transform.Find("dropdown").GetComponent<TMP_Dropdown>();
-            SetDropdown();
-        }
-
-        private void SetDropdown()
-        {
             dropdown.ClearOptions();
             var list = new List<TMP_Dropdown.OptionData>();
             foreach (var str in options)

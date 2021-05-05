@@ -1,18 +1,11 @@
 namespace DiMe.Urarulla
 {
-    /// <summary>
-    /// Contains all info
-    /// </summary>
     [System.Serializable]
     public struct CharacteristicInfos
     {
-        public CharacteristicInfo[] info;
-        public CharacteristicSkill[] skills;
+        public CharacteristicInfo[] characteristicInfos;
     }
 
-    /// <summary>
-    /// Contains extra information about all of the characteristics that can player can have.
-    /// </summary>
     [System.Serializable]
     public struct CharacteristicInfo
     {
@@ -21,9 +14,12 @@ namespace DiMe.Urarulla
         public string description;
     }
 
-    /// <summary>
-    /// A singular skill the player has worked on, done, or achieveed, like "built robots".
-    /// </summary>
+    [System.Serializable]
+    public struct CharacteristicSkills
+    {
+        public CharacteristicSkill[] characteristicSkills;
+    }
+
     [System.Serializable]
     public struct CharacteristicSkill
     {

@@ -8,13 +8,15 @@ namespace DiMe.Urarulla
         internal CreatorConfidence confidence;
         internal CreatorAttributes attributes;
 
-        private void Start()
+        private void Awake()
         {
             categories = GetComponentInChildren<CreatorCategories>(true);
             confidence = GetComponentInChildren<CreatorConfidence>(true);
             attributes = GetComponentInChildren<CreatorAttributes>(true);
 
             categories.CreateSliders();
+            confidence.SetDropdown();
+            attributes.SetDataAndDropdown();
         }
     }
 }

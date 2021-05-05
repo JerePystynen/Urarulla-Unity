@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9721bc70191a2a4c98f2e50042bbd0b, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: Assembly-CSharp:Urarulla:GameData
-  CharacteristicsFile: {fileID: 4900000, guid: 93e690bb727182b44ae8f1a7700255e7, type: 3}
+  CharacteristicsInfosFile: {fileID: 4900000, guid: 93e690bb727182b44ae8f1a7700255e7, type: 3}
+  CharacteristicsSkillsFile: {fileID: 4900000, guid: bb8051eeb387d824b8532a410d9ae106, type: 3}
   DegreeFile: {fileID: 4900000, guid: 6d95ff16c203b5e448801ec86bf8d053, type: 3}
   IndustryQuestionsFile: {fileID: 4900000, guid: f53ae170adf1e584595219400ea90231, type: 3}
   TrickyQuestionsFile: {fileID: 4900000, guid: 5dbab4ba3520e49479e8eeb91c31b6a1, type: 3}
