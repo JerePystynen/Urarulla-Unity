@@ -12,14 +12,9 @@ namespace DiMe.Urarulla
         internal new Camera camera;
         internal Outline outline;
 
-        private void Start()
-        {
-            camera = GetComponent<Camera>();
-        }
-
         internal bool CheckMouseHover()
         {
-            var isHover = IsHover();
+            var isHover = IsMouseHoveringOnModelCollider();
             if (outline != null)
             {
                 outline.enabled = isHover;
@@ -32,7 +27,7 @@ namespace DiMe.Urarulla
             return isHover;
         }
 
-        private bool IsHover()
+        private bool IsMouseHoveringOnModelCollider()
         {
             if (camera == null)
                 return false;
@@ -43,9 +38,7 @@ namespace DiMe.Urarulla
                 return false;
             if (hit.transform.parent == null)
                 return false;
-            if (hit.transform.parent.parent == null)
-                return false;
-            return hit.transform.parent.parent == transform;
+            return hit.transform.parent == transform;
         }
     }
 }

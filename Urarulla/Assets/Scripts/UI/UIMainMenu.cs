@@ -4,7 +4,7 @@ namespace DiMe.Urarulla
 {
     public class UIMainMenu : MonoBehaviour
     {
-        internal void StartButton(MainMenuStartBtn btn)
+        internal void StartButton(MainMenuStartButton btn)
         {
             if (GameManager.Players.Count == 0)
             {

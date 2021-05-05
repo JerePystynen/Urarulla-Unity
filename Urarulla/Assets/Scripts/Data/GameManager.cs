@@ -60,7 +60,6 @@ namespace DiMe.Urarulla
 
         private void CacheJson()
         {
-            // alat = JsonUtilityExt.GetData<Ala>(gameData.AlaFile);
             degrees = JsonUtilityExt.GetData<Degrees>(gameData.DegreeFile);
             characteristicInfos = JsonUtilityExt.GetData<CharacteristicInfos>(gameData.CharacteristicsFile);
 

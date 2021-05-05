@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace DiMe.Urarulla
 {
-    public class MainMenuStartBtn : MonoBehaviour
+    public class MainMenuStartButton : MonoBehaviour
     {
         private Image _background;
         private Camera _camera;
@@ -33,6 +33,7 @@ namespace DiMe.Urarulla
             if (startCoroutine == null)
             {
                 startCoroutine = StartCoroutine(StartCoroutine());
+                GlobalAudioSource.PlayButtonSelectSound();
             }
         }
 

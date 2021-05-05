@@ -29,6 +29,9 @@ namespace DiMe.Urarulla
         public GameObject PlayerProgressionBar;
 
         [Header("Sound Effects")]
+        public AudioClip GameStartSound;
+        public AudioClip SelectButtonClickedSound;
+        public AudioClip DenySelectionSound;
         public AudioClip LuckWheelSpinningSound;
         
         [Header("Sprites")]
